@@ -212,7 +212,7 @@ export default {
 <style lang="scss">
 .mentor-container {
     min-height: 100vh;
-    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #fffaf0 100%);
+    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #f7fbff 100%);
     padding-bottom: 40rpx;
 }
 
@@ -332,7 +332,7 @@ export default {
     display: block;
     font-size: 28rpx;
     font-weight: 800;
-    color: #f2994a;
+    color: #60a5fa;
 }
 
 .rating-count {

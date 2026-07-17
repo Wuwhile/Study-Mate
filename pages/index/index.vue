@@ -22,7 +22,7 @@
                     @click="navigateTo(item.path)"
                 >
                     <view class="card-header">
-                        <image class="card-emoji" :src="item.iconPath" mode="aspectFit" />
+                        <uni-icons class="card-emoji" :type="item.iconType" size="54" color="#ffffff" />
                         <text class="card-tag">{{ item.tag }}</text>
                     </view>
                     <view class="card-content">
@@ -52,7 +52,7 @@ export default {
                     id: 1,
                     title: "学情诊断",
                     desc: "用多维量表识别基础、目标、时间和薄弱知识点",
-                    iconPath: "/static/custom-icon-1.png",
+                    iconType: "medal-filled",
                     path: "/pages/phq7-test/index",
                     tag: "诊断智能体",
                     gradient: "linear-gradient(135deg, #2f80ed 0%, #56ccf2 100%)",
@@ -61,28 +61,28 @@ export default {
                     id: 2,
                     title: "资源库",
                     desc: "按目标生成讲义、例题、错题训练和复习清单",
-                    iconPath: "/static/custom-icon-2.png",
+                    iconType: "paperclip",
                     path: "/pages/health/index",
                     tag: "资源生成",
-                    gradient: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
+                    gradient: "linear-gradient(135deg, #2563eb 0%, #38bdf8 100%)",
                 },
                 {
                     id: 3,
                     title: "学习导师",
                     desc: "预约导师或学习规划员，获得阶段性计划建议",
-                    iconPath: "/static/custom-icon-3.png",
+                    iconType: "staff-filled",
                     path: "/pages/psychologist/index",
                     tag: "协同规划",
-                    gradient: "linear-gradient(135deg, #f2994a 0%, #f2c94c 100%)",
+                    gradient: "linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)",
                 },
                 {
                     id: 4,
                     title: "AI 学习助手",
                     desc: "随时提问，让答疑、追问、总结智能体协同工作",
-                    iconPath: "/static/custom-icon-4.png",
+                    iconType: "chatboxes-filled",
                     path: "/pages/message/message",
                     tag: "多智能体",
-                    gradient: "linear-gradient(135deg, #7f53ac 0%, #647dee 100%)",
+                    gradient: "linear-gradient(135deg, #1d4ed8 0%, #60a5fa 100%)",
                 },
             ],
         };
@@ -104,7 +104,7 @@ export default {
 <style lang="scss">
 .page-container {
     min-height: 100vh;
-    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 52%, #fffaf0 100%);
+    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 52%, #f7fbff 100%);
     padding-bottom: 140rpx;
 }
 
@@ -178,8 +178,13 @@ export default {
 }
 
 .card-emoji {
-    width: 100rpx;
-    height: 100rpx;
+    width: 112rpx;
+    height: 112rpx;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .card-tag {

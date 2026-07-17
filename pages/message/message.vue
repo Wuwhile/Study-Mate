@@ -447,9 +447,9 @@ export default {
     height: 100vh;
     background: linear-gradient(
         to bottom,
-        #fff8f3 0%,
-        #ffe8d6 50%,
-        #fff5f0 100%
+        #f7fbff 0%,
+        #eaf4ff 50%,
+        #f4f8ff 100%
     );
 }
 
@@ -458,9 +458,9 @@ export default {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: linear-gradient(to bottom, #fff8f3 0%, #ffe8d6 100%);
+    background: linear-gradient(to bottom, #f7fbff 0%, #eaf4ff 100%);
     border-bottom: 1rpx solid #e8d4c4;
-    box-shadow: 0 2rpx 8rpx rgba(224, 120, 86, 0.08);
+    box-shadow: 0 2rpx 8rpx rgba(47, 128, 237, 0.08);
     padding: 20rpx 30rpx;
     display: flex;
     align-items: center;
@@ -483,7 +483,7 @@ export default {
 
 .back-arrow {
     font-size: 32rpx;
-    color: #e07856;
+    color: #3b82f6;
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 10rpx;
@@ -492,7 +492,7 @@ export default {
 .back-arrow:active {
     transform: scale(0.95);
     opacity: 0.9;
-    color: #c85a3a;
+    color: #1d4ed8;
 }
 
 .header-title {
@@ -504,7 +504,7 @@ export default {
 
 .header-btn {
     font-size: 28rpx;
-    color: #e07856;
+    color: #3b82f6;
     padding: 10rpx 15rpx;
     border-radius: 6rpx;
     transition: all 0.3s ease;
@@ -513,7 +513,7 @@ export default {
 }
 
 .header-btn:active {
-    background-color: #fff8f3;
+    background-color: #f7fbff;
     transform: scale(0.95);
 }
 
@@ -598,11 +598,11 @@ export default {
 
 /* 用户消息气泡 - 温暖棕色 */
 .message-bubble.msg-right {
-    background: linear-gradient(135deg, #ef9b7f 0%, #e8986f 100%);
+    background: linear-gradient(135deg, #60a5fa 0%, #2f80ed 100%);
     color: #ffffff;
     padding: 16rpx 20rpx;
     border-radius: 16rpx;
-    box-shadow: 0 4rpx 12rpx rgba(224, 120, 86, 0.2);
+    box-shadow: 0 4rpx 12rpx rgba(47, 128, 237, 0.2);
     max-width: 100%;
 }
 
@@ -642,13 +642,13 @@ export default {
 .input-container {
     position: sticky;
     bottom: 0;
-    background: linear-gradient(to bottom, #ffe8d6 0%, #fff5f0 100%);
+    background: linear-gradient(to bottom, #eaf4ff 0%, #f4f8ff 100%);
     border-top: 1rpx solid #e8d4c4;
     padding: 16rpx 20rpx;
     display: flex;
     gap: 12rpx;
     align-items: flex-end;
-    box-shadow: 0 -2rpx 8rpx rgba(224, 120, 86, 0.08);
+    box-shadow: 0 -2rpx 8rpx rgba(47, 128, 237, 0.08);
     z-index: 100;
 }
 
@@ -667,9 +667,9 @@ export default {
 }
 
 .message-input:focus {
-    border-color: #e07856;
+    border-color: #3b82f6;
     background: white;
-    box-shadow: 0 0 0 3rpx rgba(224, 120, 86, 0.15);
+    box-shadow: 0 0 0 3rpx rgba(47, 128, 237, 0.15);
 }
 
 .message-input::placeholder {
@@ -678,7 +678,7 @@ export default {
 
 .send-btn {
     padding: 12rpx 24rpx;
-    background: linear-gradient(135deg, #e07856 0%, #d4744e 100%);
+    background: linear-gradient(135deg, #3b82f6 0%, #2f80ed 100%);
     color: white;
     border: none;
     border-radius: 20rpx;
@@ -687,13 +687,13 @@ export default {
     transition: all 0.3s ease;
     min-width: 80rpx;
     text-align: center;
-    box-shadow: 0 4rpx 12rpx rgba(224, 120, 86, 0.25);
+    box-shadow: 0 4rpx 12rpx rgba(47, 128, 237, 0.25);
 }
 
 .send-btn:active {
-    background: linear-gradient(135deg, #c85a3a 0%, #b94a32 100%);
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
     transform: scale(0.95);
-    box-shadow: 0 2rpx 8rpx rgba(224, 120, 86, 0.18);
+    box-shadow: 0 2rpx 8rpx rgba(47, 128, 237, 0.18);
 }
 
 .send-btn:disabled {

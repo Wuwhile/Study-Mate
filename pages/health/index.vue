@@ -13,7 +13,7 @@
                         class="category-icon"
                         :type="item.icon"
                         size="30"
-                        :color="currentCategory === item.key ? '#ffffff' : '#d4744e'"
+                        :color="currentCategory === item.key ? '#ffffff' : '#2f80ed'"
                     />
                     <text class="category-text">{{ item.name }}</text>
                 </view>
@@ -663,7 +663,7 @@ AI 使用方式
 <style lang="scss">
 .resource-container {
     min-height: 100vh;
-    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #fffaf0 100%);
+    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #f7fbff 100%);
     padding-bottom: 40rpx;
 }
 

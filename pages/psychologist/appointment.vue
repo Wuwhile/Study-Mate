@@ -198,7 +198,7 @@ export default {
 <style lang="scss">
 .appointment-container {
     min-height: 100vh;
-    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #fffaf0 100%);
+    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #f7fbff 100%);
     padding: 24rpx 30rpx 44rpx;
 }
 
