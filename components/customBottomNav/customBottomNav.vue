@@ -5,7 +5,12 @@
             :class="{ active: currentPage === 'home' }"
             @click="navigateToHome"
         >
-            <text class="nav-icon">首页</text>
+            <uni-icons
+                class="nav-icon"
+                type="home-filled"
+                size="24"
+                :color="currentPage === 'home' ? '#ffffff' : 'rgba(255,255,255,0.72)'"
+            />
             <text class="nav-text">首页</text>
         </view>
         <view
@@ -13,7 +18,12 @@
             :class="{ active: currentPage === 'user' }"
             @click="navigateToUser"
         >
-            <text class="nav-icon">我的</text>
+            <uni-icons
+                class="nav-icon"
+                type="person-filled"
+                size="24"
+                :color="currentPage === 'user' ? '#ffffff' : 'rgba(255,255,255,0.72)'"
+            />
             <text class="nav-text">个人中心</text>
         </view>
     </view>

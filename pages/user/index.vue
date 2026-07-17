@@ -21,7 +21,7 @@
         <view class="menu-container">
             <view class="menu-item" @click="navigateTo('account')">
                 <view class="menu-left">
-                    <text class="menu-icon">账户</text>
+                    <uni-icons class="menu-icon" type="person-filled" size="24" color="#d4744e" />
                     <view class="menu-text">
                         <text class="menu-title">账号管理</text>
                         <text class="menu-desc">修改绑定的手机和邮箱</text>
@@ -32,7 +32,7 @@
 
             <view class="menu-item" @click="navigateTo('password')">
                 <view class="menu-left">
-                    <text class="menu-icon">密码</text>
+                    <uni-icons class="menu-icon" type="locked-filled" size="24" color="#d4744e" />
                     <view class="menu-text">
                         <text class="menu-title">修改密码</text>
                         <text class="menu-desc">更新你的登录密码</text>
@@ -43,7 +43,7 @@
 
             <view class="menu-item" @click="navigateTo('settings')">
                 <view class="menu-left">
-                    <text class="menu-icon">设置</text>
+                    <uni-icons class="menu-icon" type="gear-filled" size="24" color="#d4744e" />
                     <view class="menu-text">
                         <text class="menu-title">设置</text>
                         <text class="menu-desc">隐私、通知、显示设置</text>
@@ -54,7 +54,7 @@
 
             <view class="menu-item" @click="navigateTo('feedback')">
                 <view class="menu-left">
-                    <text class="menu-icon">反馈</text>
+                    <uni-icons class="menu-icon" type="chat-filled" size="24" color="#d4744e" />
                     <view class="menu-text">
                         <text class="menu-title">帮助与反馈</text>
                         <text class="menu-desc">向我们提出建议和问题</text>
@@ -65,7 +65,7 @@
 
             <view class="menu-item" @click="navigateTo('about')">
                 <view class="menu-left">
-                    <text class="menu-icon">ℹ️</text>
+                    <uni-icons class="menu-icon" type="info-filled" size="24" color="#d4744e" />
                     <view class="menu-text">
                         <text class="menu-title">关于我们</text>
                         <text class="menu-desc">了解 Study-mate 系统信息</text>

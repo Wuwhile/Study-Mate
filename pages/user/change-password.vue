@@ -82,14 +82,18 @@
                     <text class="requirements-title">密码需满足以下条件：</text>
 
                     <view class="requirement-item">
-                        <text :class="['requirement-icon', { met: lengthMet }]">
-                            {{ lengthMet ? "通过" : "未达标" }}
-                        </text>
+                        <uni-icons
+                            class="requirement-icon"
+                            :class="{ met: lengthMet }"
+                            :type="lengthMet ? 'checkmarkempty' : 'circle'"
+                            size="18"
+                            :color="lengthMet ? '#52c41a' : '#c0c4cc'"
+                        />
                         <text class="requirement-text"> 6-16 个字符 </text>
                     </view>
 
                     <view class="requirement-item">
-                        <text
+                        <uni-icons
                             :class="[
                                 'requirement-icon',
                                 {
@@ -99,13 +103,18 @@
                                         lowerCaseMet,
                                 },
                             ]"
-                        >
-                            {{
+                            :type="
                                 digitMet || upperCaseMet || lowerCaseMet
-                                    ? "通过"
-                                    : "未达标"
-                            }}
-                        </text>
+                                    ? 'checkmarkempty'
+                                    : 'circle'
+                            "
+                            size="18"
+                            :color="
+                                digitMet || upperCaseMet || lowerCaseMet
+                                    ? '#52c41a'
+                                    : '#c0c4cc'
+                            "
+                        />
                         <text class="requirement-text">
                             包含字母、数字或符号（至少一种）
                         </text>

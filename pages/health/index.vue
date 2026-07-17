@@ -9,7 +9,12 @@
                     :class="{ active: currentCategory === item.key }"
                     @click="filterByCategory(item.key)"
                 >
-                    <text class="category-icon">{{ item.icon }}</text>
+                    <uni-icons
+                        class="category-icon"
+                        :type="item.icon"
+                        size="22"
+                        :color="currentCategory === item.key ? '#ffffff' : '#d4744e'"
+                    />
                     <text class="category-text">{{ item.name }}</text>
                 </view>
             </scroll-view>
@@ -87,12 +92,12 @@ export default {
             showArticle: false,
             selectedArticle: {},
             categories: [
-                { key: "all", name: "全部", icon: "ALL" },
-                { key: "concept", name: "知识讲义", icon: "DOC" },
-                { key: "practice", name: "练习生成", icon: "EX" },
-                { key: "review", name: "复习计划", icon: "PLAN" },
-                { key: "project", name: "项目任务", icon: "PROJ" },
-                { key: "exam", name: "考前冲刺", icon: "GOAL" },
+                { key: "all", name: "全部", icon: "list" },
+                { key: "concept", name: "知识讲义", icon: "paperclip" },
+                { key: "practice", name: "练习生成", icon: "compose" },
+                { key: "review", name: "复习计划", icon: "calendar" },
+                { key: "project", name: "项目任务", icon: "folder-add" },
+                { key: "exam", name: "考前冲刺", icon: "flag-filled" },
             ],
             articles: [
                 {
@@ -233,13 +238,13 @@ export default {
 .category-item.active {
     background: #16324f;
     border-color: #16324f;
+
     .category-text {
         color: #fff;
     }
 }
 
 .category-icon {
-    font-size: 30rpx;
     margin-bottom: 8rpx;
 }
 

@@ -8,7 +8,12 @@
 
         <view class="search-section">
             <view class="search-bar">
-                <text class="search-icon">搜索</text>
+                <uni-icons
+                    class="search-icon"
+                    type="search"
+                    size="20"
+                    color="#999999"
+                />
                 <input
                     class="search-input"
                     placeholder="搜索导师姓名、课程或擅长方向"

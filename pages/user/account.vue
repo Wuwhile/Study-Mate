@@ -75,9 +75,10 @@
                     <text class="email-text">{{
                         accountInfo.email || "未绑定"
                     }}</text>
-                    <text v-if="accountInfo.email" class="status-badge verified"
-                        >已验证</text
-                    >
+                    <view v-if="accountInfo.email" class="status-badge verified">
+                        <uni-icons type="checkmarkempty" size="13" color="#52c41a" />
+                        <text>已验证</text>
+                    </view>
                 </view>
                 <view class="item-action">
                     <button class="edit-btn" @click="openEmailModal">
@@ -93,9 +94,10 @@
                 </view>
                 <view class="item-content">
                     <text class="phone-text">{{ maskedPhone }}</text>
-                    <text v-if="accountInfo.phone" class="status-badge verified"
-                        >已验证</text
-                    >
+                    <view v-if="accountInfo.phone" class="status-badge verified">
+                        <uni-icons type="checkmarkempty" size="13" color="#52c41a" />
+                        <text>已验证</text>
+                    </view>
                 </view>
                 <view class="item-action">
                     <button class="edit-btn" @click="openPhoneModal">
@@ -147,9 +149,9 @@
             <view class="modal-content" @click.stop>
                 <view class="modal-header">
                     <text class="modal-title">修改用户名</text>
-                    <view class="modal-close" @click="showUsernameModal = false"
-                        >关闭</view
-                    >
+                    <view class="modal-close" @click="showUsernameModal = false">
+                        <uni-icons type="closeempty" size="22" color="#999999" />
+                    </view>
                 </view>
                 <view class="modal-body">
                     <input
@@ -182,9 +184,9 @@
             <view class="modal-content" @click.stop>
                 <view class="modal-header">
                     <text class="modal-title">修改邮箱</text>
-                    <view class="modal-close" @click="showEmailModal = false"
-                        >关闭</view
-                    >
+                    <view class="modal-close" @click="showEmailModal = false">
+                        <uni-icons type="closeempty" size="22" color="#999999" />
+                    </view>
                 </view>
                 <view class="modal-body">
                     <input
@@ -215,7 +217,7 @@
                 <view class="modal-header">
                     <text class="modal-title">修改手机号</text>
                     <view class="modal-close" @click="showPhoneModal = false">
-                        关闭
+                        <uni-icons type="closeempty" size="22" color="#999999" />
                     </view>
                 </view>
                 <view class="modal-body">
@@ -246,9 +248,9 @@
             <view class="history-modal" @click.stop>
                 <view class="modal-header">
                     <text class="modal-title">登录日志</text>
-                    <view class="modal-close" @click="showHistoryModal = false"
-                        >关闭</view
-                    >
+                    <view class="modal-close" @click="showHistoryModal = false">
+                        <uni-icons type="closeempty" size="22" color="#999999" />
+                    </view>
                 </view>
                 <view class="history-controls">
                     <button
@@ -1249,6 +1251,9 @@ export default {
 }
 
 .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4rpx;
     font-size: 22rpx;
     padding: 4rpx 12rpx;
     border-radius: 12rpx;
@@ -1320,8 +1325,11 @@ export default {
             }
 
             .modal-close {
-                font-size: 32rpx;
-                color: #999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44rpx;
+                height: 44rpx;
                 cursor: pointer;
             }
         }
