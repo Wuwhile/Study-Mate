@@ -192,9 +192,9 @@ export default {
 page {
     background: linear-gradient(
         to bottom,
-        #f7fbff 0%,
-        #eaf4ff 50%,
-        #f4f8ff 100%
+        #fff8f3 0%,
+        #ffe8d6 50%,
+        #fff5f0 100%
     );
 }
 
@@ -202,9 +202,9 @@ page {
     min-height: 100vh;
     background: linear-gradient(
         to bottom,
-        #f7fbff 0%,
-        #eaf4ff 50%,
-        #f4f8ff 100%
+        #fff8f3 0%,
+        #ffe8d6 50%,
+        #fff5f0 100%
     );
 }
 
@@ -215,9 +215,9 @@ page {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: linear-gradient(to bottom, #f7fbff 0%, #eaf4ff 100%);
+    background: linear-gradient(to bottom, #fff8f3 0%, #ffe8d6 100%);
     border-bottom: 1rpx solid #e8d4c4;
-    box-shadow: 0 2rpx 8rpx rgba(47, 128, 237, 0.08);
+    box-shadow: 0 2rpx 8rpx rgba(224, 120, 86, 0.08);
     padding: 20rpx 30rpx;
     display: flex;
     align-items: center;
@@ -238,7 +238,7 @@ page {
 
 .back-arrow {
     font-size: 32rpx;
-    color: #3b82f6;
+    color: #e07856;
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 10rpx;
@@ -247,7 +247,7 @@ page {
 .back-arrow:active {
     transform: scale(0.95);
     opacity: 0.9;
-    color: #1d4ed8;
+    color: #c85a3a;
 }
 
 /* 列表容器 */
@@ -271,18 +271,18 @@ page {
 
 /* 对话项 */
 .conversation-item {
-    background: linear-gradient(135deg, #ffffff 0%, #f7fbff 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #fff8f3 100%);
     margin: 10rpx 20rpx;
     padding: 20rpx;
     border-radius: 12rpx;
-    border-left: 4rpx solid #3b82f6;
-    box-shadow: 0 4rpx 12rpx rgba(47, 128, 237, 0.12);
+    border-left: 4rpx solid #e07856;
+    box-shadow: 0 4rpx 12rpx rgba(224, 120, 86, 0.12);
     transition: all 0.3s ease;
 }
 
 .conversation-item:active {
-    background-color: #f4f8ff;
-    box-shadow: 0 6rpx 16rpx rgba(47, 128, 237, 0.18);
+    background-color: #fff5f0;
+    box-shadow: 0 6rpx 16rpx rgba(224, 120, 86, 0.18);
     transform: translateY(-2rpx);
 }
 
@@ -332,7 +332,7 @@ page {
 }
 
 .delete-btn {
-    color: #3b82f6;
+    color: #e07856;
     padding: 8rpx 16rpx;
     border-radius: 6rpx;
     transition: all 0.3s ease;
@@ -340,8 +340,8 @@ page {
 }
 
 .delete-btn:active {
-    background-color: rgba(47, 128, 237, 0.1);
-    color: #1d4ed8;
+    background-color: rgba(224, 120, 86, 0.1);
+    color: #c85a3a;
 }
 
 /* 加载更多 */
@@ -350,7 +350,7 @@ page {
     justify-content: center;
     align-items: center;
     padding: 20rpx;
-    color: #3b82f6;
+    color: #e07856;
     font-size: 28rpx;
     font-weight: 500;
 }

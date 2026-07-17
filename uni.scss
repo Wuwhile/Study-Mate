@@ -3,11 +3,11 @@
 $primary-color: #2f80ed;
 $primary-light: #56ccf2;
 $primary-dark: #16324f;
-$accent-color: #2563eb;
+$accent-color: #11998e;
 
 $bg-light: #f7fbff;
 $bg-medium: #eef6f2;
-$bg-dark: #f7fbff;
+$bg-dark: #fffaf0;
 
 $shadow-study: rgba(31, 55, 83, 0.1);
 $shadow-normal: rgba(0, 0, 0, 0.08);
@@ -32,7 +32,7 @@ $shadow-normal: rgba(0, 0, 0, 0.08);
     }
 
     .study-bg {
-        background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #f7fbff 100%) !important;
+        background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #fffaf0 100%) !important;
     }
 
     .study-btn {
@@ -47,6 +47,6 @@ $shadow-normal: rgba(0, 0, 0, 0.08);
     }
 
     .study-text-accent {
-        color: #2563eb !important;
+        color: #11998e !important;
     }
 }

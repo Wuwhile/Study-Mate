@@ -79,7 +79,7 @@ export default {
 <style lang="scss" scoped>
 .help-page {
     min-height: 100vh;
-    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #f7fbff 100%);
+    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #fffaf0 100%);
     padding: 22rpx;
 }
 

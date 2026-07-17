@@ -21,7 +21,7 @@
                     class="category-emoji"
                     :type="item.emoji"
                     size="38"
-                    :color="currentCategory === index ? '#2f80ed' : '#2f80ed'"
+                    :color="currentCategory === index ? '#2f80ed' : '#d4744e'"
                 />
                 <text>{{ item.name }}</text>
             </view>
@@ -31,7 +31,7 @@
             <view v-for="test in filteredTests" :key="test.id" class="test-card" @click="startTest(test)">
                 <view class="card-badge" v-if="test.isNew">NEW</view>
                 <view class="test-cover-emoji">
-                    <uni-icons :type="test.emoji" size="66" color="#2f80ed" />
+                    <uni-icons :type="test.emoji" size="66" color="#d4744e" />
                 </view>
                 <view class="test-info">
                     <text class="test-title">{{ test.title }}</text>
@@ -191,7 +191,7 @@ export default {
 <style lang="scss">
 .diagnosis-container {
     min-height: 100vh;
-    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #f7fbff 100%);
+    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #fffaf0 100%);
     padding-bottom: 120rpx;
 }
 
@@ -210,11 +210,11 @@ export default {
     flex: 0 0 92rpx;
     margin-right: 20rpx;
     border-radius: 50%;
-    background: linear-gradient(135deg, #60a5fa 0%, #2f80ed 100%);
+    background: linear-gradient(135deg, #e8a183 0%, #d4744e 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8rpx 18rpx rgba(47, 128, 237, 0.22);
+    box-shadow: 0 8rpx 18rpx rgba(212, 116, 78, 0.22);
 }
 
 .guide-speech {
@@ -277,7 +277,7 @@ export default {
     position: absolute;
     top: 18rpx;
     right: 18rpx;
-    background: #60a5fa;
+    background: #f2994a;
     color: #fff;
     padding: 4rpx 12rpx;
     border-radius: 14rpx;
