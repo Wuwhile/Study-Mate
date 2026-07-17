@@ -83,7 +83,7 @@
 
                     <view class="requirement-item">
                         <text :class="['requirement-icon', { met: lengthMet }]">
-                            {{ lengthMet ? "✓" : "○" }}
+                            {{ lengthMet ? "通过" : "未达标" }}
                         </text>
                         <text class="requirement-text"> 6-16 个字符 </text>
                     </view>
@@ -102,8 +102,8 @@
                         >
                             {{
                                 digitMet || upperCaseMet || lowerCaseMet
-                                    ? "✓"
-                                    : "○"
+                                    ? "通过"
+                                    : "未达标"
                             }}
                         </text>
                         <text class="requirement-text">

@@ -1,7 +1,7 @@
 <template>
     <view class="diagnosis-container">
         <view class="guide-area">
-            <text class="guide-emoji">🧠</text>
+            <text class="guide-emoji">AI</text>
             <view class="guide-speech">
                 <text>Hi，我是 Study-mate 的诊断智能体。先完成一个学习画像诊断，我会帮你定位薄弱点并生成后续资源。</text>
             </view>
@@ -61,17 +61,17 @@ export default {
             currentCategory: 0,
             currentTest: {},
             categories: [
-                { name: "基础水平", emoji: "📌", type: "foundation" },
-                { name: "学习目标", emoji: "🎯", type: "goal" },
-                { name: "时间规划", emoji: "⏱️", type: "schedule" },
-                { name: "学习偏好", emoji: "🧭", type: "preference" },
+                { name: "基础水平", emoji: "BASE", type: "foundation" },
+                { name: "学习目标", emoji: "GOAL", type: "goal" },
+                { name: "时间规划", emoji: "TIME", type: "schedule" },
+                { name: "学习偏好", emoji: "LIKE", type: "preference" },
             ],
             testList: [
                 {
                     id: "phq7",
                     title: "课程基础诊断",
                     description: "识别当前章节掌握度、先修知识和易错概念",
-                    emoji: "📘",
+                    emoji: "DOC",
                     questionCount: 9,
                     duration: 3,
                     type: "foundation",
@@ -83,7 +83,7 @@ export default {
                     id: "gad7",
                     title: "知识点掌握诊断",
                     description: "按知识点自评与小题检查生成薄弱点列表",
-                    emoji: "🧩",
+                    emoji: "MAP",
                     questionCount: 7,
                     duration: 3,
                     type: "foundation",
@@ -95,7 +95,7 @@ export default {
                     id: "cpss",
                     title: "学习目标清晰度诊断",
                     description: "明确考试、项目、竞赛或能力提升等目标",
-                    emoji: "🎯",
+                    emoji: "GOAL",
                     questionCount: 14,
                     duration: 5,
                     type: "goal",
@@ -107,7 +107,7 @@ export default {
                     id: "ucla",
                     title: "协作学习需求诊断",
                     description: "判断是否需要导师、同伴互评或项目协作支持",
-                    emoji: "🤝",
+                    emoji: "TEAM",
                     questionCount: 20,
                     duration: 5,
                     type: "goal",
@@ -119,7 +119,7 @@ export default {
                     id: "its",
                     title: "每周学习时间诊断",
                     description: "评估可用时间、专注时段和复习节奏",
-                    emoji: "📅",
+                    emoji: "PLAN",
                     questionCount: 12,
                     duration: 4,
                     type: "schedule",
@@ -131,7 +131,7 @@ export default {
                     id: "psqi",
                     title: "复习节奏诊断",
                     description: "定位预习、练习、复盘、测试之间的时间分配",
-                    emoji: "🔁",
+                    emoji: "REV",
                     questionCount: 7,
                     duration: 3,
                     type: "schedule",
@@ -143,7 +143,7 @@ export default {
                     id: "sds",
                     title: "资源偏好诊断",
                     description: "确定你更适合讲义、视频脚本、例题还是项目任务",
-                    emoji: "🧪",
+                    emoji: "TEST",
                     questionCount: 10,
                     duration: 4,
                     type: "preference",

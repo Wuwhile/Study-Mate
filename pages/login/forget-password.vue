@@ -176,7 +176,7 @@
 
             <!-- 成功界面 -->
             <view class="success-section" v-if="currentStep === 4">
-                <view class="success-icon">✅</view>
+                <view class="success-icon">成功</view>
                 <text class="success-title">密码重置成功！</text>
                 <text class="success-desc">您可以使用新密码登录了</text>
                 <u-button

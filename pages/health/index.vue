@@ -87,12 +87,12 @@ export default {
             showArticle: false,
             selectedArticle: {},
             categories: [
-                { key: "all", name: "全部", icon: "📚" },
-                { key: "concept", name: "知识讲义", icon: "🧩" },
-                { key: "practice", name: "练习生成", icon: "✍️" },
-                { key: "review", name: "复习计划", icon: "📅" },
-                { key: "project", name: "项目任务", icon: "🛠️" },
-                { key: "exam", name: "考前冲刺", icon: "🎯" },
+                { key: "all", name: "全部", icon: "ALL" },
+                { key: "concept", name: "知识讲义", icon: "DOC" },
+                { key: "practice", name: "练习生成", icon: "EX" },
+                { key: "review", name: "复习计划", icon: "PLAN" },
+                { key: "project", name: "项目任务", icon: "PROJ" },
+                { key: "exam", name: "考前冲刺", icon: "GOAL" },
             ],
             articles: [
                 {

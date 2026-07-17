@@ -301,7 +301,7 @@ export default {
                         this.scrollToBottom();
                     });
 
-                    console.log("✓ AI 回复完成");
+                    console.log("AI 回复完成");
 
                     // 如果是第一条对话（只有2条消息：用户+AI），则生成标题
                     if (this.msgList.length === 2) {
@@ -311,7 +311,7 @@ export default {
                     throw new Error("API 返回数据格式错误");
                 }
             } catch (error) {
-                console.error("❌ 获取AI回复失败:", error);
+                console.error("获取AI回复失败:", error);
 
                 // 如果消息为空则移除
                 const aiMsgIndex = this.msgList.findIndex(
@@ -395,8 +395,8 @@ export default {
             // 标题：去掉 # 前缀
             text = text.replace(/^(#{1,3})\s+/gm, "");
 
-            // 列表：- 转为 🔸（粉红菱形）
-            text = text.replace(/^-\s+/gm, "🔸 ");
+            // 列表：- 转为稳定的文本项目符号
+            text = text.replace(/^-\s+/gm, "- ");
 
             // 代码块：去掉反引号
             text = text.replace(/`([^`]+)`/g, "$1");
@@ -424,7 +424,7 @@ export default {
                 if (result && result.code === 200) {
                     const newTitle = result.data.title || "新对话";
                     this.conversationTitle = newTitle;
-                    console.log("✓ 对话标题已生成:", newTitle);
+                    console.log("对话标题已生成:", newTitle);
                 } else {
                     console.warn(
                         "生成标题失败:",

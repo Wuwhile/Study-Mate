@@ -5,7 +5,7 @@
             :class="{ active: currentPage === 'home' }"
             @click="navigateToHome"
         >
-            <text class="nav-icon">🏠</text>
+            <text class="nav-icon">首页</text>
             <text class="nav-text">首页</text>
         </view>
         <view
@@ -13,7 +13,7 @@
             :class="{ active: currentPage === 'user' }"
             @click="navigateToUser"
         >
-            <text class="nav-icon">👤</text>
+            <text class="nav-icon">我的</text>
             <text class="nav-text">个人中心</text>
         </view>
     </view>

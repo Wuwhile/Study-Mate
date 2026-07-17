@@ -8,7 +8,7 @@
 
         <view class="search-section">
             <view class="search-bar">
-                <text class="search-icon">🔎</text>
+                <text class="search-icon">搜索</text>
                 <input
                     class="search-input"
                     placeholder="搜索导师姓名、课程或擅长方向"

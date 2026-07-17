@@ -76,7 +76,7 @@
                         accountInfo.email || "未绑定"
                     }}</text>
                     <text v-if="accountInfo.email" class="status-badge verified"
-                        >✓ 已验证</text
+                        >已验证</text
                     >
                 </view>
                 <view class="item-action">
@@ -94,7 +94,7 @@
                 <view class="item-content">
                     <text class="phone-text">{{ maskedPhone }}</text>
                     <text v-if="accountInfo.phone" class="status-badge verified"
-                        >✓ 已验证</text
+                        >已验证</text
                     >
                 </view>
                 <view class="item-action">
@@ -148,7 +148,7 @@
                 <view class="modal-header">
                     <text class="modal-title">修改用户名</text>
                     <view class="modal-close" @click="showUsernameModal = false"
-                        >✕</view
+                        >关闭</view
                     >
                 </view>
                 <view class="modal-body">
@@ -183,7 +183,7 @@
                 <view class="modal-header">
                     <text class="modal-title">修改邮箱</text>
                     <view class="modal-close" @click="showEmailModal = false"
-                        >✕</view
+                        >关闭</view
                     >
                 </view>
                 <view class="modal-body">
@@ -215,7 +215,7 @@
                 <view class="modal-header">
                     <text class="modal-title">修改手机号</text>
                     <view class="modal-close" @click="showPhoneModal = false">
-                        ✕
+                        关闭
                     </view>
                 </view>
                 <view class="modal-body">
@@ -247,7 +247,7 @@
                 <view class="modal-header">
                     <text class="modal-title">登录日志</text>
                     <view class="modal-close" @click="showHistoryModal = false"
-                        >✕</view
+                        >关闭</view
                     >
                 </view>
                 <view class="history-controls">
