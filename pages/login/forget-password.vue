@@ -251,7 +251,7 @@ export default {
             this.sendCodeLoading = true;
             try {
                 // 直接使用HTTP请求而不依赖API对象
-                const baseUrl = "http://47.94.217.78:7001/alibaba-ai/v1";
+                const baseUrl = "http://47.94.217.78:7003/alibaba-ai/v1";
                 const url = `${baseUrl}/user/password/reset-code`;
 
                 console.log("发送请求到:", url);
@@ -420,7 +420,7 @@ export default {
             this.resetLoading = true;
             try {
                 // 直接使用HTTP请求而不依赖API对象
-                const baseUrl = "http://47.94.217.78:7001/alibaba-ai/v1";
+                const baseUrl = "http://47.94.217.78:7003/alibaba-ai/v1";
                 const url = `${baseUrl}/user/password/reset`;
 
                 const response = await uni.$u.http.post(
