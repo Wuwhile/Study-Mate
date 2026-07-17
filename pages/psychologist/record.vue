@@ -44,7 +44,9 @@
             <view class="detail-content" @click.stop>
                 <view class="detail-header">
                     <text class="detail-title">学习规划预约详情</text>
-                    <view class="close-btn" @click="closeDetail">×</view>
+                    <view class="close-btn" @click="closeDetail">
+                        <uni-icons type="closeempty" size="26" color="#60758a" />
+                    </view>
                 </view>
 
                 <scroll-view scroll-y class="detail-body">
@@ -285,6 +287,7 @@ export default {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 .detail-header {
@@ -293,28 +296,36 @@ export default {
     align-items: center;
     padding: 32rpx;
     border-bottom: 1rpx solid #e8eef5;
+    gap: 18rpx;
 }
 
 .detail-title {
+    flex: 1;
+    min-width: 0;
     font-size: 31rpx;
     font-weight: 800;
     color: #172b4d;
+    line-height: 1.4;
+    word-break: break-word;
 }
 
 .close-btn {
+    flex: 0 0 52rpx;
     width: 52rpx;
     height: 52rpx;
     border-radius: 50%;
     background: #f1f5f9;
-    text-align: center;
-    line-height: 52rpx;
-    font-size: 36rpx;
-    color: #60758a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .detail-body {
-    padding: 30rpx 32rpx;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 30rpx 40rpx;
     max-height: 58vh;
+    overflow-x: hidden;
 }
 
 .detail-section {
@@ -331,20 +342,32 @@ export default {
 
 .info-row {
     margin-bottom: 10rpx;
+    align-items: flex-start;
+    gap: 20rpx;
 }
 
 .info-label {
+    flex: 0 0 150rpx;
     font-size: 24rpx;
     color: #8a9aab;
 }
 
 .info-value {
+    flex: 1;
+    min-width: 0;
     font-size: 24rpx;
     color: #172b4d;
+    text-align: right;
+    line-height: 1.5;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .need-detail {
     display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
     padding: 18rpx;
     border-radius: 14rpx;
     background: #f8fafc;
@@ -352,6 +375,8 @@ export default {
     color: #536578;
     line-height: 1.7;
     white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .detail-footer {
