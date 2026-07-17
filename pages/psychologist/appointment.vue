@@ -152,7 +152,11 @@ export default {
                 this.showSuccess = true;
             } catch (error) {
                 uni.hideLoading();
-                uni.showToast({ title: "提交失败，请重试", icon: "none" });
+                console.error("提交学习规划预约失败:", error);
+                uni.showToast({
+                    title: error?.message || "提交失败，请重试",
+                    icon: "none",
+                });
             }
         },
         async saveAppointmentToBackend() {
@@ -163,7 +167,7 @@ export default {
                 patientAge: parseInt(this.formData.age) || 0,
                 patientGender: this.formData.gender,
                 patientPhone: this.formData.phone,
-                consultationContent: this.formData.content,
+                consultationContent: `年级/阶段：${this.formData.age}\n学习方向：${this.formData.gender}\n学习需求：${this.formData.content}`,
                 urgency: this.formData.urgency,
                 timePreference: this.formData.timePreference,
             };
