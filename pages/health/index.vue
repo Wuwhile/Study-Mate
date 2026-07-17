@@ -12,7 +12,7 @@
                     <uni-icons
                         class="category-icon"
                         :type="item.icon"
-                        size="22"
+                        size="28"
                         :color="currentCategory === item.key ? '#ffffff' : '#d4744e'"
                     />
                     <text class="category-text">{{ item.name }}</text>

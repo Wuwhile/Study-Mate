@@ -86,7 +86,7 @@
                             class="requirement-icon"
                             :class="{ met: lengthMet }"
                             :type="lengthMet ? 'checkmarkempty' : 'circle'"
-                            size="18"
+                            size="24"
                             :color="lengthMet ? '#52c41a' : '#c0c4cc'"
                         />
                         <text class="requirement-text"> 6-16 个字符 </text>
@@ -108,7 +108,7 @@
                                     ? 'checkmarkempty'
                                     : 'circle'
                             "
-                            size="18"
+                            size="24"
                             :color="
                                 digitMet || upperCaseMet || lowerCaseMet
                                     ? '#52c41a'

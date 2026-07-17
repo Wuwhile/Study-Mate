@@ -4,7 +4,7 @@
             <uni-icons
                 class="guide-emoji"
                 type="staff-filled"
-                size="38"
+                size="50"
                 color="#ffffff"
             />
             <view class="guide-speech">
@@ -23,7 +23,7 @@
                 <uni-icons
                     class="category-emoji"
                     :type="item.emoji"
-                    size="20"
+                    size="28"
                     :color="currentCategory === index ? '#ffffff' : '#d4744e'"
                 />
                 <text>{{ item.name }}</text>
@@ -34,7 +34,7 @@
             <view v-for="test in filteredTests" :key="test.id" class="test-card" @click="startTest(test)">
                 <view class="card-badge" v-if="test.isNew">NEW</view>
                 <view class="test-cover-emoji">
-                    <uni-icons :type="test.emoji" size="34" color="#d4744e" />
+                    <uni-icons :type="test.emoji" size="48" color="#d4744e" />
                 </view>
                 <view class="test-info">
                     <text class="test-title">{{ test.title }}</text>

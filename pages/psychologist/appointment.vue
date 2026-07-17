@@ -78,7 +78,7 @@
         <view class="success-modal" v-if="showSuccess" @click="closeSuccess">
             <view class="success-content" @click.stop>
                 <view class="success-icon">
-                    <uni-icons type="checkmarkempty" size="40" color="#18a058" />
+                    <uni-icons type="checkmarkempty" size="56" color="#18a058" />
                 </view>
                 <text class="success-title">预约已提交</text>
                 <text class="success-message">我们已收到你的学习规划需求，导师确认后会给出下一步学习建议。</text>

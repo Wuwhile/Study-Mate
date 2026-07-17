@@ -76,7 +76,7 @@
                         accountInfo.email || "未绑定"
                     }}</text>
                     <view v-if="accountInfo.email" class="status-badge verified">
-                        <uni-icons type="checkmarkempty" size="13" color="#52c41a" />
+                        <uni-icons type="checkmarkempty" size="17" color="#52c41a" />
                         <text>已验证</text>
                     </view>
                 </view>
@@ -95,7 +95,7 @@
                 <view class="item-content">
                     <text class="phone-text">{{ maskedPhone }}</text>
                     <view v-if="accountInfo.phone" class="status-badge verified">
-                        <uni-icons type="checkmarkempty" size="13" color="#52c41a" />
+                        <uni-icons type="checkmarkempty" size="17" color="#52c41a" />
                         <text>已验证</text>
                     </view>
                 </view>
@@ -150,7 +150,7 @@
                 <view class="modal-header">
                     <text class="modal-title">修改用户名</text>
                     <view class="modal-close" @click="showUsernameModal = false">
-                        <uni-icons type="closeempty" size="22" color="#999999" />
+                        <uni-icons type="closeempty" size="30" color="#999999" />
                     </view>
                 </view>
                 <view class="modal-body">
@@ -185,7 +185,7 @@
                 <view class="modal-header">
                     <text class="modal-title">修改邮箱</text>
                     <view class="modal-close" @click="showEmailModal = false">
-                        <uni-icons type="closeempty" size="22" color="#999999" />
+                        <uni-icons type="closeempty" size="30" color="#999999" />
                     </view>
                 </view>
                 <view class="modal-body">
@@ -217,7 +217,7 @@
                 <view class="modal-header">
                     <text class="modal-title">修改手机号</text>
                     <view class="modal-close" @click="showPhoneModal = false">
-                        <uni-icons type="closeempty" size="22" color="#999999" />
+                        <uni-icons type="closeempty" size="30" color="#999999" />
                     </view>
                 </view>
                 <view class="modal-body">
@@ -249,7 +249,7 @@
                 <view class="modal-header">
                     <text class="modal-title">登录日志</text>
                     <view class="modal-close" @click="showHistoryModal = false">
-                        <uni-icons type="closeempty" size="22" color="#999999" />
+                        <uni-icons type="closeempty" size="30" color="#999999" />
                     </view>
                 </view>
                 <view class="history-controls">
@@ -1328,8 +1328,8 @@ export default {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 44rpx;
-                height: 44rpx;
+                width: 56rpx;
+                height: 56rpx;
                 cursor: pointer;
             }
         }

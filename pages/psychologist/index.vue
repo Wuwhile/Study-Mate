@@ -11,7 +11,7 @@
                 <uni-icons
                     class="search-icon"
                     type="search"
-                    size="20"
+                    size="26"
                     color="#999999"
                 />
                 <input
