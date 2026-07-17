@@ -706,7 +706,11 @@ export default {
                     uni.showToast({ title: result.message || "保存失败", icon: "none" });
                 }
             } catch (error) {
-                uni.showToast({ title: "保存失败，请稍后重试", icon: "none" });
+                console.error("保存学情诊断报告失败:", error);
+                uni.showToast({
+                    title: error?.message || "保存失败，请稍后重试",
+                    icon: "none",
+                });
             }
         },
         goBack() {
