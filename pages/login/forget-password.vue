@@ -476,9 +476,9 @@ export default {
     min-height: 100vh;
     background: linear-gradient(
         to bottom,
-        #fff8f3 0%,
-        #ffe8d6 50%,
-        #fff5f0 100%
+        #f7fbff 0%,
+        #eaf4ff 48%,
+        #f2fff8 100%
     );
     padding: 20px;
     display: flex;
@@ -496,7 +496,7 @@ export default {
     background: white;
     border-radius: 20px;
     padding: 40px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.16);
     overflow: visible;
 
     .dark-mode & {
@@ -510,7 +510,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 30px;
-    background: #d4744e;
+    background: linear-gradient(135deg, #2563eb 0%, #0f766e 100%);
     padding: 20px;
     border-radius: 15px;
 
@@ -581,12 +581,12 @@ export default {
         }
 
         &.active .step-number {
-            background: #d4744e;
+            background: #2563eb;
             color: white;
         }
 
         &.completed .step-number {
-            background: #4caf50;
+            background: #0f766e;
             color: white;
         }
     }
@@ -603,7 +603,7 @@ export default {
         }
 
         &.active {
-            background: #d4744e;
+            background: #2563eb;
         }
     }
 }
@@ -658,7 +658,7 @@ export default {
         }
 
         .resend-link {
-            color: #d4744e;
+            color: #2563eb;
             font-size: 12px;
             cursor: pointer;
         }
@@ -673,13 +673,14 @@ export default {
 
 /* 覆盖主按钮颜色 */
 ::v-deep .u-button--primary {
-    background-color: #d4744e !important;
-    border-color: #d4744e !important;
+    background: linear-gradient(135deg, #2563eb 0%, #0f766e 100%) !important;
+    border-color: #2563eb !important;
+    box-shadow: 0 10rpx 26rpx rgba(37, 99, 235, 0.22);
 }
 
 ::v-deep .u-button--primary:not(:disabled):not(.is-loading):active {
-    background-color: #c55a38 !important;
-    border-color: #c55a38 !important;
+    background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%) !important;
+    border-color: #0f766e !important;
 }
 
 .success-section {
