@@ -6,19 +6,15 @@
         <view class="container">
             <!-- logo -->
             <view class="logo">
-                <image
-                    src="/static/logo4.png"
-                    class="logo-image"
-                    mode="aspectFit"
-                ></image>
+                <view class="logo-mark">
+                    <text class="logo-main">学</text>
+                    <text class="logo-dot">AI</text>
+                </view>
             </view>
             <!-- title -->
             <view class="title">
-                <image
-                    src="/static/title.png"
-                    mode="widthFix"
-                    style="width: 85%; max-width: 450px"
-                ></image>
+                <text class="title-text">擎思启学</text>
+                <text class="title-subtitle">创建账号，开启个性化学习路径</text>
             </view>
             <!-- 用户名密码表单 -->
             <view class="form">
@@ -86,7 +82,7 @@
                 </u--form>
                 <u-button
                     text="注册"
-                    customStyle="margin-top: 50px; background: #e07856; color: white; font-weight: 700;"
+                    customStyle="margin-top: 50px; background: linear-gradient(135deg, #2563eb 0%, #0f766e 100%); color: white; font-weight: 700;"
                     shape="circle"
                     @click="submit"
                 >
@@ -327,7 +323,7 @@ export default {
             height: 400px;
             top: -100px;
             right: -100px;
-            background: linear-gradient(135deg, #e07856 0%, #d4744e 100%);
+            background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
             animation:
                 fadeInSpin 1.2s cubic-bezier(0.34, 1.56, 0.64, 1),
                 rotateBg 20s infinite linear 1.2s;
@@ -338,7 +334,7 @@ export default {
             height: 300px;
             bottom: -80px;
             left: -80px;
-            background: linear-gradient(135deg, #d4744e 0%, #e07856 100%);
+            background: linear-gradient(135deg, #14b8a6 0%, #22c55e 100%);
             animation:
                 fadeInSpin 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s,
                 rotateBgReverse 15s infinite linear 1.4s;
@@ -348,9 +344,9 @@ export default {
     .container {
         background: linear-gradient(
             to bottom,
-            #fff8f3 0%,
-            #ffe8d6 50%,
-            #fff5f0 100%
+            #f7fbff 0%,
+            #eaf4ff 48%,
+            #f2fff8 100%
         );
         width: 100vw;
         padding-top: 10vh;
@@ -365,14 +361,51 @@ export default {
             justify-content: center;
             align-items: flex-end;
             width: 100vw;
-            filter: drop-shadow(0 4rpx 12rpx rgba(224, 120, 86, 0.15));
+            filter: drop-shadow(0 8rpx 18rpx rgba(37, 99, 235, 0.16));
             animation: slideInUp 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s
                 backwards;
 
-            .logo-image {
-                width: 100px;
-                height: 100px;
+            .logo-mark {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 116rpx;
+                height: 116rpx;
+                border-radius: 32rpx;
+                background: linear-gradient(135deg, #2563eb 0%, #0f766e 100%);
+                box-shadow:
+                    0 18rpx 36rpx rgba(37, 99, 235, 0.22),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.35);
                 animation: float 4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    inset: 10rpx;
+                    border: 2rpx solid rgba(255, 255, 255, 0.45);
+                    border-radius: 26rpx;
+                }
+            }
+
+            .logo-main {
+                color: #ffffff;
+                font-size: 56rpx;
+                font-weight: 800;
+                line-height: 1;
+            }
+
+            .logo-dot {
+                position: absolute;
+                right: -18rpx;
+                bottom: -12rpx;
+                padding: 4rpx 10rpx;
+                border-radius: 999rpx;
+                background: #d9f99d;
+                color: #14532d;
+                font-size: 20rpx;
+                font-weight: 800;
+                box-shadow: 0 8rpx 18rpx rgba(20, 83, 45, 0.16);
             }
         }
 
@@ -382,12 +415,20 @@ export default {
             animation: slideInUp 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s
                 backwards;
 
-            image {
-                width: 85%;
-                max-width: 450px;
-                height: auto;
+            .title-text {
                 display: block;
-                margin: 0 auto;
+                color: #12345a;
+                font-size: 48rpx;
+                font-weight: 700;
+                line-height: 1.2;
+            }
+
+            .title-subtitle {
+                display: block;
+                margin-top: 14rpx;
+                color: #53718d;
+                font-size: 26rpx;
+                line-height: 1.4;
             }
         }
 
@@ -426,12 +467,12 @@ export default {
             }
 
             ::v-deep .u-btn {
-                background: #e07856;
+                background: linear-gradient(135deg, #2563eb 0%, #0f766e 100%);
                 color: white;
                 font-weight: 700;
                 font-size: 18px;
                 border-radius: 24px;
-                box-shadow: 0 8rpx 24rpx rgba(224, 120, 86, 0.25);
+                box-shadow: 0 10rpx 26rpx rgba(37, 99, 235, 0.24);
                 border: none;
                 transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 position: relative;
@@ -454,12 +495,12 @@ export default {
 
                 &:active {
                     transform: scale(0.95);
-                    box-shadow: 0 12rpx 32rpx rgba(224, 120, 86, 0.35);
+                    box-shadow: 0 12rpx 32rpx rgba(15, 118, 110, 0.28);
                 }
 
                 &:hover {
                     animation: bounce 0.6s ease-in-out;
-                    box-shadow: 0 12rpx 28rpx rgba(224, 120, 86, 0.3);
+                    box-shadow: 0 12rpx 28rpx rgba(37, 99, 235, 0.28);
                 }
             }
         }
@@ -475,7 +516,7 @@ export default {
 
             .footer-text {
                 font-size: 14px;
-                color: #d4744e;
+                color: #2563eb;
                 padding: 15px;
                 font-weight: 600;
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
