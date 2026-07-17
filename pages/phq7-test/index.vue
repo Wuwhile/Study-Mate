@@ -21,7 +21,7 @@
                     class="category-emoji"
                     :type="item.emoji"
                     size="38"
-                    :color="currentCategory === index ? '#ffffff' : '#d4744e'"
+                    :color="currentCategory === index ? '#2f80ed' : '#d4744e'"
                 />
                 <text>{{ item.name }}</text>
             </view>
