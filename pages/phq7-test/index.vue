@@ -4,7 +4,7 @@
             <uni-icons
                 class="guide-emoji"
                 type="staff-filled"
-                size="50"
+                size="62"
                 color="#ffffff"
             />
             <view class="guide-speech">
@@ -23,7 +23,7 @@
                 <uni-icons
                     class="category-emoji"
                     :type="item.emoji"
-                    size="28"
+                    size="38"
                     :color="currentCategory === index ? '#ffffff' : '#d4744e'"
                 />
                 <text>{{ item.name }}</text>
@@ -34,7 +34,7 @@
             <view v-for="test in filteredTests" :key="test.id" class="test-card" @click="startTest(test)">
                 <view class="card-badge" v-if="test.isNew">NEW</view>
                 <view class="test-cover-emoji">
-                    <uni-icons :type="test.emoji" size="48" color="#d4744e" />
+                    <uni-icons :type="test.emoji" size="66" color="#d4744e" />
                 </view>
                 <view class="test-info">
                     <text class="test-title">{{ test.title }}</text>
@@ -232,8 +232,13 @@ export default {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 28rpx;
+    padding: 0 30rpx;
     opacity: 0.62;
+
+    text {
+        font-size: 26rpx;
+        font-weight: 650;
+    }
 }
 
 .category-item.active {
@@ -245,8 +250,7 @@ export default {
 }
 
 .category-emoji {
-    font-size: 48rpx;
-    margin-bottom: 8rpx;
+    margin-bottom: 12rpx;
 }
 
 .test-list {
@@ -256,7 +260,7 @@ export default {
 .test-card {
     position: relative;
     display: flex;
-    min-height: 190rpx;
+    min-height: 210rpx;
     margin-bottom: 24rpx;
     background: rgba(255, 255, 255, 0.96);
     border-radius: 18rpx;
@@ -277,11 +281,10 @@ export default {
 }
 
 .test-cover-emoji {
-    width: 180rpx;
+    width: 205rpx;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 72rpx;
     background: #edf5ff;
 }
 
@@ -294,19 +297,19 @@ export default {
 }
 
 .test-title {
-    font-size: 31rpx;
+    font-size: 35rpx;
     font-weight: 800;
     color: #172b4d;
 }
 
 .test-desc {
-    font-size: 24rpx;
+    font-size: 27rpx;
     color: #536578;
     line-height: 1.45;
 }
 
 .test-meta {
-    font-size: 22rpx;
+    font-size: 24rpx;
     color: #8a9aab;
 }
 
