@@ -1,657 +1,389 @@
 <template>
-  <view :class="['appointment-container', containerClasses]" :style="{'--theme-color': themeColor}">
-    <!-- 顶部导航 -->
-    <!-- <view class="header">
-      <view class="header-left">
-        <text class="back-arrow" @click="goBack">⬅️</text>
-        <text class="header-title">预约咨询</text>
-      </view>
-    </view> -->
-
-    <!-- 医生信息卡片 -->
-    <view class="doctor-card">
-      <view class="doctor-info">
-        <image :src="doctorInfo.avatar" class="doctor-avatar" mode="aspectFill"/>
-        <view class="doctor-details">
-          <text class="doctor-name">{{doctorInfo.name}}</text>
-          <text class="doctor-title">{{doctorInfo.title}}</text>
-          <text class="doctor-specialties">{{doctorInfo.specialties.join('、')}}</text>
+    <view class="appointment-container">
+        <view class="mentor-card">
+            <image :src="mentorInfo.avatar" class="mentor-avatar" mode="aspectFill" />
+            <view class="mentor-details">
+                <text class="mentor-name">{{ mentorInfo.name }}</text>
+                <text class="mentor-title">{{ mentorInfo.title }}</text>
+                <text class="mentor-specialties">{{ mentorInfo.specialties.join("、") }}</text>
+            </view>
         </view>
-      </view>
+
+        <view class="form-container">
+            <view class="form-title">
+                <text class="title-text">填写学习规划预约</text>
+                <text class="title-desc">提交后，导师会根据你的目标与基础确认辅导方案。</text>
+            </view>
+
+            <view class="form-item">
+                <text class="form-label">姓名 <text class="required">*</text></text>
+                <input class="form-input" v-model="formData.name" placeholder="请输入姓名" maxlength="20" />
+            </view>
+
+            <view class="form-item">
+                <text class="form-label">年级/阶段 <text class="required">*</text></text>
+                <input class="form-input" v-model="formData.age" placeholder="例如：大三、研一、在职学习" maxlength="20" />
+            </view>
+
+            <view class="form-item">
+                <text class="form-label">学习方向 <text class="required">*</text></text>
+                <view class="option-row">
+                    <view class="option" :class="{ selected: formData.gender === '课程学习' }" @click="selectGender('课程学习')">课程学习</view>
+                    <view class="option" :class="{ selected: formData.gender === '项目实践' }" @click="selectGender('项目实践')">项目实践</view>
+                </view>
+            </view>
+
+            <view class="form-item">
+                <text class="form-label">手机号 <text class="required">*</text></text>
+                <input class="form-input" v-model="formData.phone" placeholder="请输入手机号" type="number" maxlength="11" />
+            </view>
+
+            <view class="form-item">
+                <text class="form-label">学习需求 <text class="required">*</text></text>
+                <textarea
+                    class="form-textarea"
+                    v-model="formData.content"
+                    placeholder="请描述课程、目标、当前困难、希望生成的资源或需要导师帮助的地方"
+                    maxlength="500"
+                    :show-count="true"
+                />
+            </view>
+
+            <view class="form-item">
+                <text class="form-label">紧急程度</text>
+                <view class="option-row">
+                    <view class="option" :class="{ selected: formData.urgency === '普通' }" @click="selectUrgency('普通')">普通</view>
+                    <view class="option" :class="{ selected: formData.urgency === '近期需要' }" @click="selectUrgency('近期需要')">近期需要</view>
+                    <view class="option" :class="{ selected: formData.urgency === '考前冲刺' }" @click="selectUrgency('考前冲刺')">考前冲刺</view>
+                </view>
+            </view>
+
+            <view class="form-item">
+                <text class="form-label">时间偏好</text>
+                <view class="option-row">
+                    <view class="option" :class="{ selected: formData.timePreference === '工作日' }" @click="selectTimePreference('工作日')">工作日</view>
+                    <view class="option" :class="{ selected: formData.timePreference === '周末' }" @click="selectTimePreference('周末')">周末</view>
+                    <view class="option" :class="{ selected: formData.timePreference === '均可' }" @click="selectTimePreference('均可')">均可</view>
+                </view>
+            </view>
+
+            <view class="submit-section">
+                <button class="submit-btn" :class="{ disabled: !isFormValid }" :disabled="!isFormValid" @click="submitAppointment">
+                    提交预约申请
+                </button>
+                <text class="submit-tip">提交后会在 24 小时内确认学习规划时间</text>
+            </view>
+        </view>
+
+        <view class="success-modal" v-if="showSuccess" @click="closeSuccess">
+            <view class="success-content" @click.stop>
+                <view class="success-icon">✓</view>
+                <text class="success-title">预约已提交</text>
+                <text class="success-message">我们已收到你的学习规划需求，导师确认后会给出下一步学习建议。</text>
+                <button class="success-btn" @click="closeSuccess">确定</button>
+            </view>
+        </view>
     </view>
-
-    <!-- 预约表单 -->
-    <view class="form-container">
-      <view class="form-title">
-        <text class="title-text">填写预约信息</text>
-        <text class="title-desc">请填写您的个人信息，我们会尽快与您联系</text>
-      </view>
-
-      <view class="form-content">
-        <!-- 姓名 -->
-        <view class="form-item">
-          <text class="form-label">姓名 <text class="required">*</text></text>
-          <input 
-            class="form-input" 
-            v-model="formData.name"
-            placeholder="请输入您的真实姓名"
-            maxlength="20"
-          />
-        </view>
-
-        <!-- 年龄 -->
-        <view class="form-item">
-          <text class="form-label">年龄 <text class="required">*</text></text>
-          <input 
-            class="form-input" 
-            v-model="formData.age"
-            placeholder="请输入您的年龄"
-            type="number"
-            maxlength="3"
-          />
-        </view>
-
-        <!-- 性别 -->
-        <view class="form-item">
-          <text class="form-label">性别 <text class="required">*</text></text>
-          <view class="gender-options">
-            <view 
-              class="gender-option" 
-              :class="{selected: formData.gender === '男'}"
-              @click="selectGender('男')"
-            >
-              <text class="gender-icon">👨</text>
-              <text class="gender-text">男</text>
-            </view>
-            <view 
-              class="gender-option" 
-              :class="{selected: formData.gender === '女'}"
-              @click="selectGender('女')"
-            >
-              <text class="gender-icon">👩</text>
-              <text class="gender-text">女</text>
-            </view>
-          </view>
-        </view>
-
-        <!-- 手机号码 -->
-        <view class="form-item">
-          <text class="form-label">手机号码 <text class="required">*</text></text>
-          <input 
-            class="form-input" 
-            v-model="formData.phone"
-            placeholder="请输入您的手机号码"
-            type="number"
-            maxlength="11"
-          />
-        </view>
-
-        <!-- 咨询内容 -->
-        <view class="form-item">
-          <text class="form-label">咨询内容 <text class="required">*</text></text>
-          <textarea 
-            class="form-textarea" 
-            v-model="formData.content"
-            placeholder="请详细描述您希望咨询的问题或困扰，这将帮助医生更好地了解您的情况"
-            maxlength="500"
-            :show-count="true"
-          />
-        </view>
-
-        <!-- 紧急程度 -->
-        <view class="form-item">
-          <text class="form-label">紧急程度</text>
-          <view class="urgency-options">
-            <view 
-              class="urgency-option" 
-              :class="{selected: formData.urgency === '一般'}"
-              @click="selectUrgency('一般')"
-            >
-              <text class="urgency-text">一般</text>
-            </view>
-            <view 
-              class="urgency-option" 
-              :class="{selected: formData.urgency === '较急'}"
-              @click="selectUrgency('较急')"
-            >
-              <text class="urgency-text">较急</text>
-            </view>
-            <view 
-              class="urgency-option" 
-              :class="{selected: formData.urgency === '紧急'}"
-              @click="selectUrgency('紧急')"
-            >
-              <text class="urgency-text">紧急</text>
-            </view>
-          </view>
-        </view>
-
-        <!-- 预约时间偏好 -->
-        <view class="form-item">
-          <text class="form-label">预约时间偏好</text>
-          <view class="time-options">
-            <view 
-              class="time-option" 
-              :class="{selected: formData.timePreference === '工作日'}"
-              @click="selectTimePreference('工作日')"
-            >
-              <text class="time-text">工作日</text>
-            </view>
-            <view 
-              class="time-option" 
-              :class="{selected: formData.timePreference === '周末'}"
-              @click="selectTimePreference('周末')"
-            >
-              <text class="time-text">周末</text>
-            </view>
-            <view 
-              class="time-option" 
-              :class="{selected: formData.timePreference === '随时'}"
-              @click="selectTimePreference('随时')"
-            >
-              <text class="time-text">随时</text>
-            </view>
-          </view>
-        </view>
-      </view>
-
-      <!-- 提交按钮 -->
-      <view class="submit-section">
-        <button 
-          class="submit-btn" 
-          :class="{disabled: !isFormValid}"
-          @click="submitAppointment"
-          :disabled="!isFormValid"
-        >
-          提交预约申请
-        </button>
-        <text class="submit-tip">提交后我们会在24小时内联系您</text>
-      </view>
-    </view>
-
-    <!-- 成功提示弹窗 -->
-    <view class="success-modal" v-if="showSuccess" @click="closeSuccess">
-      <view class="success-content" @click.stop>
-        <view class="success-icon">✅</view>
-        <text class="success-title">预约申请已提交</text>
-        <text class="success-message">
-          我们已经收到您的预约信息，稍后会有工作人员联系您确认具体的咨询时间。感谢您的信任！
-        </text>
-        <button class="success-btn" @click="closeSuccess">确定</button>
-      </view>
-    </view>
-  </view>
 </template>
 
 <script>
-// import { saveAppointment } from '@/api/questionnaire'
-
 export default {
-  data() {
-    return {
-      themeColor: '#4facfe',
-      showSuccess: false,
-      formData: {
-        name: '',
-        age: '',
-        gender: '',
-        phone: '',
-        content: '',
-        urgency: '一般',
-        timePreference: '随时'
-      },
-      doctorInfo: {
-        id: 1,
-        name: '李心怡',
-        title: '主任医师',
-        avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=doctor1&backgroundColor=b6e3f4',
-        specialties: ['焦虑症', '抑郁症', '情感咨询']
-      }
-    }
-  },
-  computed: {
-    isFormValid() {
-      return this.formData.name.trim() !== '' &&
-             this.formData.age.trim() !== '' &&
-             this.formData.gender !== '' &&
-             this.formData.phone.trim() !== '' &&
-             this.formData.content.trim() !== ''
-    }
-  },
-  methods: {
-    selectGender(gender) {
-      this.formData.gender = gender
+    data() {
+        return {
+            showSuccess: false,
+            formData: {
+                name: "",
+                age: "",
+                gender: "",
+                phone: "",
+                content: "",
+                urgency: "普通",
+                timePreference: "均可",
+            },
+            mentorInfo: {
+                id: 1,
+                name: "林知远",
+                title: "学习规划导师",
+                avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=mentor1&backgroundColor=b6e3f4",
+                specialties: ["学习路径规划", "Python 入门", "错题复盘"],
+            },
+        };
     },
-    
-    selectUrgency(urgency) {
-      this.formData.urgency = urgency
+    computed: {
+        isFormValid() {
+            return (
+                this.formData.name.trim() &&
+                this.formData.age.trim() &&
+                this.formData.gender &&
+                this.formData.phone.trim() &&
+                this.formData.content.trim()
+            );
+        },
     },
-    
-    selectTimePreference(time) {
-      this.formData.timePreference = time
+    methods: {
+        selectGender(value) {
+            this.formData.gender = value;
+        },
+        selectUrgency(value) {
+            this.formData.urgency = value;
+        },
+        selectTimePreference(value) {
+            this.formData.timePreference = value;
+        },
+        validatePhone(phone) {
+            return /^1[3-9]\d{9}$/.test(phone);
+        },
+        async submitAppointment() {
+            if (!this.isFormValid) {
+                uni.showToast({ title: "请填写完整信息", icon: "none" });
+                return;
+            }
+            if (!this.validatePhone(this.formData.phone)) {
+                uni.showToast({ title: "请输入正确的手机号", icon: "none" });
+                return;
+            }
+
+            try {
+                uni.showLoading({ title: "提交中..." });
+                await this.saveAppointmentToBackend();
+                uni.hideLoading();
+                this.showSuccess = true;
+            } catch (error) {
+                uni.hideLoading();
+                uni.showToast({ title: "提交失败，请重试", icon: "none" });
+            }
+        },
+        async saveAppointmentToBackend() {
+            const appointmentData = {
+                doctorId: this.mentorInfo.id,
+                doctorName: this.mentorInfo.name,
+                patientName: this.formData.name,
+                patientAge: parseInt(this.formData.age) || 0,
+                patientGender: this.formData.gender,
+                patientPhone: this.formData.phone,
+                consultationContent: this.formData.content,
+                urgency: this.formData.urgency,
+                timePreference: this.formData.timePreference,
+            };
+            const result = await this.$api.appointment.saveAppointment(appointmentData);
+            if (result.code !== 200) {
+                throw new Error(result.message || "保存失败");
+            }
+        },
+        closeSuccess() {
+            this.showSuccess = false;
+            setTimeout(() => uni.navigateBack(), 500);
+        },
     },
-    
-    async submitAppointment() {
-      if (!this.isFormValid) {
-        uni.showToast({
-          title: '请填写完整信息',
-          icon: 'none'
-        })
-        return
-      }
-      
-      // 验证手机号格式
-      if (!this.validatePhone(this.formData.phone)) {
-        uni.showToast({
-          title: '请输入正确的手机号码',
-          icon: 'none'
-        })
-        return
-      }
-      
-      // 验证年龄
-      const age = parseInt(this.formData.age)
-      if (age < 1 || age > 120) {
-        uni.showToast({
-          title: '请输入正确的年龄',
-          icon: 'none'
-        })
-        return
-      }
-      
-      try {
-        uni.showLoading({
-          title: '提交中...'
-        })
-        
-        // 这里预留保存到后端的接口调用
-        await this.saveAppointmentToBackend()
-        
-        uni.hideLoading()
-        this.showSuccess = true
-        
-      } catch (error) {
-        uni.hideLoading()
-        console.error('提交预约失败:', error)
-        uni.showToast({
-          title: '提交失败，请重试',
-          icon: 'error'
-        })
-      }
-    },
-    
-    // 保存预约申请到后端
-    async saveAppointmentToBackend() {
-      const appointmentData = {
-        doctorId: this.doctorInfo.id,
-        doctorName: this.doctorInfo.name,
-        patientName: this.formData.name,
-        patientAge: parseInt(this.formData.age),
-        patientGender: this.formData.gender,
-        patientPhone: this.formData.phone,
-        consultationContent: this.formData.content,
-        urgency: this.formData.urgency,
-        timePreference: this.formData.timePreference
-      }
-      
-      console.log('预约数据:', appointmentData)
-      
-      try {
-        // 调用后端接口保存数据
-        const result = await this.$api.appointment.saveAppointment(appointmentData)
-        
-        if (result.code === 200) {
-          console.log('保存预约申请成功:', result)
-          uni.showToast({
-            title: '预约申请已提交',
-            icon: 'success',
-            duration: 2000
-          })
-        } else {
-          console.error('保存失败:', result.message)
-          uni.showToast({
-            title: result.message || '保存失败，请重试',
-            icon: 'error',
-            duration: 2000
-          })
+    onLoad(options) {
+        if (options.doctorId) {
+            this.mentorInfo = {
+                id: options.doctorId,
+                name: decodeURIComponent(options.doctorName || ""),
+                title: decodeURIComponent(options.doctorTitle || ""),
+                avatar: decodeURIComponent(options.doctorAvatar || ""),
+                specialties: options.doctorSpecialties ? decodeURIComponent(options.doctorSpecialties).split(",") : [],
+            };
         }
-      } catch (error) {
-        console.error('保存预约申请失败:', error)
-        uni.showToast({
-          title: '网络错误，请检查网络连接',
-          icon: 'error',
-          duration: 2000
-        })
-        throw error
-      }
     },
-    
-    validatePhone(phone) {
-      const phoneRegex = /^1[3-9]\d{9}$/
-      return phoneRegex.test(phone)
-    },
-    
-    closeSuccess() {
-      this.showSuccess = false
-      // 可以选择返回上一页或跳转到其他页面
-      setTimeout(() => {
-        uni.navigateBack()
-      }, 500)
-    },
-    
-    goBack() {
-      uni.navigateBack()
-    }
-  },
-  
-  onLoad(options) {
-    // 从上一页传递医生信息
-    if (options.doctorId) {
-      this.doctorInfo = {
-        id: options.doctorId,
-        name: decodeURIComponent(options.doctorName || ''),
-        title: decodeURIComponent(options.doctorTitle || ''),
-        avatar: decodeURIComponent(options.doctorAvatar || ''),
-        specialties: options.doctorSpecialties ? decodeURIComponent(options.doctorSpecialties).split(',') : []
-      }
-    }
-  }
-}
+};
 </script>
 
 <style lang="scss">
 .appointment-container {
-  min-height: 100vh;
-  background: #f8fafc;
-  padding-bottom: 40rpx;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #fffaf0 100%);
+    padding: 24rpx 30rpx 44rpx;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  padding: 40rpx 30rpx 20rpx;
-  background: white;
-  border-bottom: 1rpx solid #e2e8f0;
-  
-  .header-left {
+.mentor-card,
+.form-container {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 20rpx;
+    box-shadow: 0 10rpx 24rpx rgba(31, 55, 83, 0.1);
+}
+
+.mentor-card {
     display: flex;
     align-items: center;
-  }
-  
-  .back-arrow {
-    font-size: 40rpx;
+    padding: 28rpx;
+    margin-bottom: 22rpx;
+}
+
+.mentor-avatar {
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 50%;
     margin-right: 20rpx;
-    color: #64748b;
-  }
-  
-  .header-title {
-    font-size: 36rpx;
-    font-weight: 600;
-    color: #1e293b;
-  }
 }
 
-.doctor-card {
-  margin: 20rpx 30rpx;
-  background: white;
-  border-radius: 16rpx;
-  padding: 32rpx;
-  box-shadow: 0 1rpx 3rpx rgba(0, 0, 0, 0.1);
-  border: 1rpx solid #e2e8f0;
-  
-  .doctor-info {
-    display: flex;
-    align-items: center;
-    
-    .doctor-avatar {
-      width: 100rpx;
-      height: 100rpx;
-      border-radius: 50%;
-      margin-right: 20rpx;
-      border: 3rpx solid #e2e8f0;
-    }
-    
-    .doctor-details {
-      flex: 1;
-      
-      .doctor-name {
-        display: block;
-        font-size: 32rpx;
-        font-weight: 600;
-        color: #1e293b;
-        margin-bottom: 8rpx;
-      }
-      
-      .doctor-title {
-        display: block;
-        font-size: 24rpx;
-        color: #666;
-        margin-bottom: 8rpx;
-      }
-      
-      .doctor-specialties {
-        font-size: 22rpx;
-        color: #999;
-      }
-    }
-  }
+.mentor-name {
+    display: block;
+    font-size: 31rpx;
+    font-weight: 800;
+    color: #172b4d;
+}
+
+.mentor-title,
+.mentor-specialties {
+    display: block;
+    margin-top: 6rpx;
+    font-size: 22rpx;
+    color: #60758a;
 }
 
 .form-container {
-  margin: 20rpx 30rpx;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 20rpx;
-  padding: 40rpx;
-  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10rpx);
-  
-  .form-title {
+    padding: 36rpx;
+}
+
+.form-title {
     text-align: center;
-    margin-bottom: 40rpx;
-    
-    .title-text {
-      display: block;
-      font-size: 32rpx;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 10rpx;
-    }
-    
-    .title-desc {
-      font-size: 24rpx;
-      color: #666;
-    }
-  }
-  
-  .form-content {
-    .form-item {
-      margin-bottom: 30rpx;
-      
-      .form-label {
-        display: block;
-        font-size: 28rpx;
-        color: #333;
-        margin-bottom: 15rpx;
-        font-weight: 500;
-        
-        .required {
-          color: #ff4d4f;
-          margin-left: 5rpx;
-        }
-      }
-      
-      .form-input {
-        width: 100%;
-        height: 80rpx;
-        background: #f8f9fa;
-        border: 2rpx solid #e9ecef;
-        border-radius: 12rpx;
-        padding: 0 20rpx;
-        font-size: 28rpx;
-        color: #333;
-        box-sizing: border-box;
-        
-        &:focus {
-          border-color: var(--theme-color);
-          background: white;
-        }
-      }
-      
-      .form-textarea {
-        width: 100%;
-        min-height: 120rpx;
-        background: #f8f9fa;
-        border: 2rpx solid #e9ecef;
-        border-radius: 12rpx;
-        padding: 20rpx;
-        font-size: 28rpx;
-        color: #333;
-        box-sizing: border-box;
-        resize: none;
-        
-        &:focus {
-          border-color: var(--theme-color);
-          background: white;
-        }
-      }
-      
-      .gender-options, .urgency-options, .time-options {
-        display: flex;
-        gap: 20rpx;
-        
-        .gender-option, .urgency-option, .time-option {
-          flex: 1;
-          height: 60rpx;
-          background: #f8f9fa;
-          border: 2rpx solid #e9ecef;
-          border-radius: 12rpx;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.3s;
-          
-          &.selected {
-            background: var(--theme-color);
-            border-color: var(--theme-color);
-            color: white;
-          }
-          
-          .gender-icon {
-            font-size: 24rpx;
-            margin-right: 8rpx;
-          }
-          
-          .gender-text, .urgency-text, .time-text {
-            font-size: 26rpx;
-          }
-        }
-      }
-    }
-  }
-  
-  .submit-section {
-    margin-top: 40rpx;
+    margin-bottom: 34rpx;
+}
+
+.title-text {
+    display: block;
+    font-size: 34rpx;
+    font-weight: 800;
+    color: #16324f;
+}
+
+.title-desc {
+    display: block;
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: #60758a;
+    line-height: 1.5;
+}
+
+.form-item {
+    margin-bottom: 28rpx;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 12rpx;
+    font-size: 27rpx;
+    font-weight: 700;
+    color: #172b4d;
+}
+
+.required {
+    color: #d64545;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background: #f8fafc;
+    border: 2rpx solid #e3ebf3;
+    border-radius: 14rpx;
+    padding: 0 20rpx;
+    font-size: 27rpx;
+    color: #172b4d;
+}
+
+.form-input {
+    height: 78rpx;
+}
+
+.form-textarea {
+    min-height: 150rpx;
+    padding: 18rpx 20rpx;
+}
+
+.option-row {
+    display: flex;
+    gap: 14rpx;
+}
+
+.option {
+    flex: 1;
+    height: 64rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border: 2rpx solid #e3ebf3;
+    border-radius: 14rpx;
+    font-size: 24rpx;
+    color: #60758a;
+}
+
+.option.selected {
+    background: #2f80ed;
+    border-color: #2f80ed;
+    color: #fff;
+    font-weight: 800;
+}
+
+.submit-section {
+    margin-top: 36rpx;
     text-align: center;
-    
-    .submit-btn {
-      width: 100%;
-      height: 80rpx;
-      background: var(--theme-color);
-      color: white;
-      border: none;
-      border-radius: 40rpx;
-      font-size: 30rpx;
-      font-weight: bold;
-      margin-bottom: 15rpx;
-      transition: all 0.3s;
-      
-      &.disabled {
-        background: #ccc;
-        color: #999;
-      }
-    }
-    
-    .submit-tip {
-      font-size: 22rpx;
-      color: #999;
-    }
-  }
+}
+
+.submit-btn {
+    background: #2f80ed;
+    color: #fff;
+    border-radius: 18rpx;
+    font-weight: 800;
+}
+
+.submit-btn.disabled {
+    background: #cbd5e1;
+}
+
+.submit-tip {
+    display: block;
+    margin-top: 14rpx;
+    font-size: 22rpx;
+    color: #8a9aab;
 }
 
 .success-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 40rpx;
-  animation: fadeIn 0.3s ease;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 40rpx;
 }
 
 .success-content {
-  background: white;
-  border-radius: 24rpx;
-  width: 100%;
-  max-width: 500rpx;
-  padding: 60rpx 40rpx 40rpx;
-  text-align: center;
-  box-shadow: 0 20rpx 60rpx rgba(0, 0, 0, 0.3);
-  animation: slideUp 0.3s ease;
-  
-  .success-icon {
-    font-size: 80rpx;
-    margin-bottom: 20rpx;
-  }
-  
-  .success-title {
+    width: 100%;
+    max-width: 500rpx;
+    padding: 54rpx 38rpx 38rpx;
+    text-align: center;
+    background: #fff;
+    border-radius: 20rpx;
+}
+
+.success-icon {
+    font-size: 72rpx;
+    color: #18a058;
+}
+
+.success-title {
     display: block;
     font-size: 32rpx;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20rpx;
-  }
-  
-  .success-message {
-    font-size: 26rpx;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 40rpx;
-    word-wrap: break-word;
-    word-break: break-all;
-    white-space: pre-wrap;
+    font-weight: 800;
+    margin: 12rpx 0;
+}
+
+.success-message {
     display: block;
-  }
-  
-  .success-btn {
-    width: 200rpx;
-    height: 60rpx;
-    background: var(--theme-color);
-    color: white;
-    border: none;
-    border-radius: 30rpx;
-    font-size: 28rpx;
-    font-weight: bold;
-  }
+    font-size: 25rpx;
+    color: #536578;
+    line-height: 1.6;
+    margin-bottom: 28rpx;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(50rpx);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.success-btn {
+    background: #2f80ed;
+    color: #fff;
+    border-radius: 16rpx;
 }
 </style>

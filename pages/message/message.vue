@@ -25,7 +25,7 @@
             enable-flex
         >
             <view v-if="msgList.length === 0" class="empty-state">
-                <text class="empty-text">开始聊天</text>
+                <text class="empty-text">开始学习提问</text>
             </view>
 
             <view
@@ -59,7 +59,7 @@
                 v-model="inputContent"
                 type="text"
                 class="message-input"
-                placeholder="输入消息..."
+                placeholder="输入课程问题、错题或资源生成需求..."
                 @confirm="sendMsg"
             />
             <button class="send-btn" @click="sendMsg">发送</button>
@@ -78,7 +78,7 @@ export default {
             // 对话ID
             conversationId: "",
             // 对话标题
-            conversationTitle: "心理咨询",
+            conversationTitle: "AI 学习助手",
             // 我的头像
             myAvatar: "/static/logo3.png",
             // 朋友头像
@@ -137,7 +137,7 @@ export default {
             // 创建新对话会话
             try {
                 const createRes = await this.$api.createConversation({
-                    title: "新对话",
+                    title: "新的学习对话",
                 });
                 if (createRes.code === 200) {
                     this.conversationId = createRes.data.id;
@@ -201,7 +201,7 @@ export default {
         },
         async sendMsg() {
             if (!this.inputContent.trim()) {
-                uni.$u.toast("消息不能为空");
+                uni.$u.toast("请输入学习问题");
                 return;
             }
 
@@ -232,7 +232,7 @@ export default {
                 const aiMsgId = Date.now() + Math.random();
                 this.msgList.push({
                     id: aiMsgId,
-                    msgContent: "思考中", // 初始显示"思考中"
+                    msgContent: "正在分析学习需求",
                     fromUserId: 0,
                     time: new Date().toISOString(),
                     msgType: "text",
@@ -356,7 +356,7 @@ export default {
                 success: (res) => {
                     if (res.confirm) {
                         this.init();
-                        uni.$u.toast("已开启新对话");
+                    uni.$u.toast("已开启新的学习对话");
                     }
                 },
             });

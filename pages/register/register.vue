@@ -105,7 +105,7 @@ export default {
     data() {
         let _this = this;
         return {
-            title: "暖愈心伴",
+            title: "Study-mate",
             model: {
                 user: {
                     username: "",

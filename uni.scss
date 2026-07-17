@@ -1,34 +1,22 @@
-/* uni.scss */
 @import "uview-ui/theme.scss";
 
-/* ============= 全局温馨主题颜色 ============= */
+$primary-color: #2f80ed;
+$primary-light: #56ccf2;
+$primary-dark: #16324f;
+$accent-color: #11998e;
 
-// 主要颜色
-$primary-color: #e07856; // 温暖的棕红色
-$primary-light: #ef9b7f; // 浅温暖棕色
-$primary-dark: #c85a3a; // 深温暖棕色
-$accent-color: #d4744e; // 强调色
+$bg-light: #f7fbff;
+$bg-medium: #eef6f2;
+$bg-dark: #fffaf0;
 
-// 背景色
-$bg-light: #fff8f3; // 浅奶油色
-$bg-medium: #ffe8d6; // 中奶油色
-$bg-dark: #fff5f0; // 深奶油色
-
-// 阴影
-$shadow-warm: rgba(224, 120, 86, 0.12);
+$shadow-study: rgba(31, 55, 83, 0.1);
 $shadow-normal: rgba(0, 0, 0, 0.08);
 
-// ============= 全局Header样式 =============
 .theme-light {
-    .warm-header {
-        background: linear-gradient(
-            135deg,
-            #e07856 0%,
-            #d4744e 50%,
-            #c85a3a 100%
-        ) !important;
+    .study-header {
+        background: linear-gradient(135deg, #16324f 0%, #2f80ed 100%) !important;
         color: #ffffff !important;
-        box-shadow: 0 8rpx 24rpx rgba(224, 120, 86, 0.25) !important;
+        box-shadow: 0 8rpx 24rpx rgba(47, 128, 237, 0.22) !important;
 
         .header-title,
         .header-subtitle {
@@ -36,45 +24,29 @@ $shadow-normal: rgba(0, 0, 0, 0.08);
         }
     }
 
-    .warm-card {
+    .study-card {
         box-shadow:
-            0 8rpx 24rpx $shadow-warm,
+            0 8rpx 24rpx $shadow-study,
             0 2rpx 8rpx $shadow-normal !important;
-        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-
-        &:hover {
-            transform: translateY(-8rpx) !important;
-            box-shadow:
-                0 16rpx 32rpx rgba(224, 120, 86, 0.18),
-                0 4rpx 12rpx $shadow-normal !important;
-        }
+        transition: all 0.3s ease !important;
     }
 
-    .warm-bg {
-        background: linear-gradient(
-            to bottom,
-            #fff8f3 0%,
-            #ffe8d6 50%,
-            #fff5f0 100%
-        ) !important;
+    .study-bg {
+        background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #fffaf0 100%) !important;
     }
 
-    .warm-btn {
-        background: linear-gradient(
-            135deg,
-            #e07856 0%,
-            #d4744e 100%
-        ) !important;
+    .study-btn {
+        background: #2f80ed !important;
         color: #ffffff !important;
         border: none !important;
-        border-radius: 24rpx !important;
+        border-radius: 18rpx !important;
     }
 
-    .warm-text-primary {
-        color: #e07856 !important;
+    .study-text-primary {
+        color: #2f80ed !important;
     }
 
-    .warm-text-accent {
-        color: #d4744e !important;
+    .study-text-accent {
+        color: #11998e !important;
     }
 }

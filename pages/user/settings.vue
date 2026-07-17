@@ -1,73 +1,48 @@
 <template>
-    <view :class="['settings-container', containerClasses]">
-        <!-- 隐私设置 -->
+    <view class="settings-container">
         <view class="settings-section">
-            <view class="section-title">隐私设置</view>
+            <view class="section-title">学习数据</view>
             <view class="settings-item">
                 <view class="item-left">
-                    <text class="item-label">显示我的心理数据</text>
-                    <text class="item-desc"
-                        >允许其他用户查看你的心理测试结果概览</text
-                    >
+                    <text class="item-label">保存学习画像</text>
+                    <text class="item-desc">用于生成更贴合基础和目标的资源</text>
                 </view>
-                <switch
-                    :checked="settings.showPsychData"
-                    @change="toggleSetting('showPsychData')"
-                    color="#e07856"
-                />
+                <switch :checked="settings.saveLearningProfile" @change="toggleSetting('saveLearningProfile')" color="#2f80ed" />
             </view>
             <view class="settings-item">
                 <view class="item-left">
-                    <text class="item-label">允许位置分享</text>
-                    <text class="item-desc">用于推荐周边心理咨询服务</text>
+                    <text class="item-label">允许个性化推荐</text>
+                    <text class="item-desc">根据诊断和错题推荐讲义、练习和复习计划</text>
                 </view>
-                <switch
-                    :checked="settings.allowLocation"
-                    @change="toggleSetting('allowLocation')"
-                    color="#e07856"
-                />
+                <switch :checked="settings.personalRecommendation" @change="toggleSetting('personalRecommendation')" color="#2f80ed" />
             </view>
         </view>
 
-        <!-- 通知设置 -->
         <view class="settings-section">
             <view class="section-title">通知设置</view>
             <view class="settings-item">
                 <view class="item-left">
-                    <text class="item-label">接收测试提醒</text>
-                    <text class="item-desc">定期提醒你进行心理测试</text>
+                    <text class="item-label">学习计划提醒</text>
+                    <text class="item-desc">提醒你完成每日学习任务和复盘</text>
                 </view>
-                <switch
-                    :checked="settings.testReminder"
-                    @change="toggleSetting('testReminder')"
-                    color="#e07856"
-                />
+                <switch :checked="settings.planReminder" @change="toggleSetting('planReminder')" color="#2f80ed" />
             </view>
             <view class="settings-item">
                 <view class="item-left">
-                    <text class="item-label">接收预约提醒</text>
-                    <text class="item-desc">预约前24小时提前通知</text>
+                    <text class="item-label">资源生成提醒</text>
+                    <text class="item-desc">资源或报告生成完成后通知你查看</text>
                 </view>
-                <switch
-                    :checked="settings.appointmentReminder"
-                    @change="toggleSetting('appointmentReminder')"
-                    color="#e07856"
-                />
+                <switch :checked="settings.resourceReminder" @change="toggleSetting('resourceReminder')" color="#2f80ed" />
             </view>
             <view class="settings-item">
                 <view class="item-left">
-                    <text class="item-label">接收消息提醒</text>
-                    <text class="item-desc">来自医生或平台的消息通知</text>
+                    <text class="item-label">导师预约提醒</text>
+                    <text class="item-desc">预约确认和学习规划更新时通知</text>
                 </view>
-                <switch
-                    :checked="settings.messageReminder"
-                    @change="toggleSetting('messageReminder')"
-                    color="#e07856"
-                />
+                <switch :checked="settings.appointmentReminder" @change="toggleSetting('appointmentReminder')" color="#2f80ed" />
             </view>
         </view>
 
-        <!-- 显示设置 -->
         <view class="settings-section">
             <view class="section-title">显示设置</view>
             <view class="settings-item" @click="fontModalVisible = true">
@@ -79,91 +54,59 @@
             </view>
         </view>
 
-        <!-- 数据与隐私 -->
         <view class="settings-section">
-            <view class="section-title">数据与隐私</view>
+            <view class="section-title">数据与协议</view>
             <view class="settings-item" @click="showPrivacy">
                 <view class="item-left">
                     <text class="item-label">隐私政策</text>
-                    <text class="item-desc">了解我们如何处理你的数据</text>
+                    <text class="item-desc">了解 Study-mate 如何处理学习数据</text>
                 </view>
                 <text class="menu-arrow">&gt;</text>
             </view>
             <view class="settings-item" @click="showTerms">
                 <view class="item-left">
                     <text class="item-label">用户协议</text>
-                    <text class="item-desc">查看服务条款</text>
+                    <text class="item-desc">查看服务条款和使用边界</text>
                 </view>
                 <text class="menu-arrow">&gt;</text>
             </view>
             <view class="settings-item" @click="confirmClearCache">
                 <view class="item-left">
                     <text class="item-label">清空缓存</text>
-                    <text class="item-desc">删除本地存储的临时数据</text>
+                    <text class="item-desc">删除本地临时数据</text>
                 </view>
                 <text class="menu-arrow">&gt;</text>
             </view>
         </view>
 
-        <!-- 关于 -->
         <view class="settings-section">
             <view class="section-title">关于</view>
             <view class="settings-item">
                 <view class="item-left">
                     <text class="item-label">应用版本</text>
-                    <text class="item-desc">v1.3.0</text>
+                    <text class="item-desc">v2.0.0</text>
                 </view>
             </view>
         </view>
 
-        <!-- 字体大小选择弹窗 -->
         <uni-popup ref="fontPopup" type="bottom" :maskClick="true">
             <view class="popup-container">
                 <view class="popup-header">
                     <text class="popup-title">选择字体大小</text>
-                    <view class="close-btn" @click="fontModalVisible = false"
-                        >✕</view
-                    >
+                    <view class="close-btn" @click="fontModalVisible = false">×</view>
                 </view>
                 <view class="popup-content font-options">
-                    <view
-                        class="font-option"
-                        :class="{ selected: settings.fontSize === 'small' }"
-                        @click="changeFontSize('small')"
-                    >
+                    <view class="font-option" :class="{ selected: settings.fontSize === 'small' }" @click="changeFontSize('small')">
                         <text class="font-preview small">Aa</text>
                         <text class="font-name">小</text>
-                        <text
-                            class="font-check"
-                            v-if="settings.fontSize === 'small'"
-                            >✓</text
-                        >
                     </view>
-                    <view
-                        class="font-option"
-                        :class="{ selected: settings.fontSize === 'medium' }"
-                        @click="changeFontSize('medium')"
-                    >
+                    <view class="font-option" :class="{ selected: settings.fontSize === 'medium' }" @click="changeFontSize('medium')">
                         <text class="font-preview medium">Aa</text>
-                        <text class="font-name">中（默认）</text>
-                        <text
-                            class="font-check"
-                            v-if="settings.fontSize === 'medium'"
-                            >✓</text
-                        >
+                        <text class="font-name">中</text>
                     </view>
-                    <view
-                        class="font-option"
-                        :class="{ selected: settings.fontSize === 'large' }"
-                        @click="changeFontSize('large')"
-                    >
+                    <view class="font-option" :class="{ selected: settings.fontSize === 'large' }" @click="changeFontSize('large')">
                         <text class="font-preview large">Aa</text>
                         <text class="font-name">大</text>
-                        <text
-                            class="font-check"
-                            v-if="settings.fontSize === 'large'"
-                            >✓</text
-                        >
                     </view>
                 </view>
             </view>
@@ -176,11 +119,11 @@ export default {
     data() {
         return {
             settings: {
-                showPsychData: true,
-                allowLocation: false,
-                testReminder: true,
+                saveLearningProfile: true,
+                personalRecommendation: true,
+                planReminder: true,
+                resourceReminder: true,
                 appointmentReminder: true,
-                messageReminder: true,
                 fontSize: this.$themeManager.getFontSize(),
             },
             fontModalVisible: false,
@@ -188,40 +131,25 @@ export default {
     },
     computed: {
         fontSizeLabel() {
-            const fontMap = {
-                small: "小",
-                medium: "中",
-                large: "大",
-            };
-            return fontMap[this.settings.fontSize] || "中";
+            return { small: "小", medium: "中", large: "大" }[this.settings.fontSize] || "中";
         },
     },
     watch: {
         fontModalVisible(newVal) {
-            if (newVal) {
-                this.$refs.fontPopup?.open();
-            } else {
-                this.$refs.fontPopup?.close();
-            }
+            if (newVal) this.$refs.fontPopup?.open();
+            else this.$refs.fontPopup?.close();
         },
     },
     onLoad() {
         this.loadSettings();
     },
     onShow() {
-        // 每次进入页面更新设置
         this.settings.fontSize = this.$themeManager.getFontSize();
     },
     methods: {
         loadSettings() {
-            try {
-                const savedSettings = uni.getStorageSync("userSettings");
-                if (savedSettings) {
-                    this.settings = Object.assign(this.settings, savedSettings);
-                }
-            } catch (e) {
-                console.error("加载设置出错", e);
-            }
+            const savedSettings = uni.getStorageSync("userSettings");
+            if (savedSettings) this.settings = Object.assign(this.settings, savedSettings);
         },
         toggleSetting(key) {
             this.settings[key] = !this.settings[key];
@@ -231,33 +159,16 @@ export default {
             this.settings.fontSize = size;
             this.$themeManager.setFontSize(size);
             this.fontModalVisible = false;
-            uni.showToast({
-                title: "字体大小已更改",
-                icon: "success",
-                duration: 800,
-            });
+            uni.showToast({ title: "字体大小已更新", icon: "success", duration: 800 });
         },
         saveSettings() {
-            try {
-                uni.setStorageSync("userSettings", this.settings);
-                uni.showToast({
-                    title: "设置已保存",
-                    icon: "success",
-                    duration: 1000,
-                });
-            } catch (e) {
-                console.error("保存设置出错", e);
-                uni.showToast({
-                    title: "保存失败",
-                    icon: "none",
-                });
-            }
+            uni.setStorageSync("userSettings", this.settings);
+            uni.showToast({ title: "设置已保存", icon: "success", duration: 900 });
         },
         showPrivacy() {
             uni.showModal({
                 title: "隐私政策",
-                content:
-                    "我们尊重并保护您的个人隐私。本应用采用行业标准的安全措施来保护您的数据安全。详细内容请访问我们的官方网站。",
+                content: "Study-mate 会使用你的学习画像、诊断记录和对话记录来提供个性化资源生成服务。请不要提交无关敏感信息。",
                 showCancel: false,
                 confirmText: "知道了",
             });
@@ -265,8 +176,7 @@ export default {
         showTerms() {
             uni.showModal({
                 title: "用户协议",
-                content:
-                    "使用本应用即表示您同意遵守用户协议。详细条款请访问我们的官方网站。",
+                content: "AI 生成内容用于学习辅助，重要结论请结合教材、课程要求和导师建议确认。",
                 showCancel: false,
                 confirmText: "知道了",
             });
@@ -274,26 +184,16 @@ export default {
         confirmClearCache() {
             uni.showModal({
                 title: "清空缓存",
-                content: "确定要清空所有本地缓存吗？此操作无法撤销。",
-                confirmColor: "#f5576c",
+                content: "确定要清空本地临时数据吗？",
+                confirmColor: "#d64545",
                 success: (res) => {
-                    if (res.confirm) {
-                        this.clearCache();
-                    }
+                    if (res.confirm) this.clearCache();
                 },
             });
         },
         clearCache() {
-            try {
-                uni.clearStorageSync();
-                uni.showToast({
-                    title: "缓存已清空",
-                    icon: "success",
-                    duration: 1000,
-                });
-            } catch (e) {
-                console.error("清空缓存出错", e);
-            }
+            uni.clearStorageSync();
+            uni.showToast({ title: "缓存已清空", icon: "success", duration: 1000 });
         },
     },
 };
@@ -301,203 +201,93 @@ export default {
 
 <style scoped lang="scss">
 .settings-container {
-    background: linear-gradient(
-        to bottom,
-        #fff8f3 0%,
-        #ffe8d6 50%,
-        #fff5f0 100%
-    );
     min-height: 100vh;
-    padding-bottom: 20upx;
-
-    &.theme-dark {
-        background-color: #1a1a1a;
-
-        .settings-section {
-            background-color: #2d2d2d;
-        }
-
-        .section-title {
-            color: #ffffff;
-            border-bottom-color: #444444;
-        }
-
-        .settings-item {
-            border-bottom-color: #444444;
-
-            .item-label {
-                color: #ffffff;
-            }
-
-            .item-desc {
-                color: #aaaaaa;
-            }
-
-            .menu-arrow {
-                color: #666666;
-            }
-        }
-
-        .popup-container {
-            background-color: #2d2d2d;
-
-            .popup-header {
-                border-bottom-color: #444444;
-
-                .popup-title {
-                    color: #ffffff;
-                }
-
-                .close-btn {
-                    color: #aaaaaa;
-                }
-            }
-        }
-
-        .theme-option {
-            background-color: #333333;
-            border-color: #444444;
-
-            .theme-name {
-                color: #ffffff;
-            }
-
-            &.selected {
-                background-color: #1a2d4d;
-            }
-
-            .theme-check {
-                background-color: #444444;
-            }
-        }
-
-        .font-option {
-            background-color: #333333;
-            border-color: #444444;
-
-            .font-preview {
-                color: #ffffff;
-            }
-
-            .font-name {
-                color: #cccccc;
-            }
-
-            &.selected {
-                background-color: #1a2d4d;
-                border-color: #e07856;
-            }
-
-            .font-check {
-                background-color: #444444;
-                color: #e07856;
-            }
-        }
-    }
-
-    &.font-small {
-        font-size: 24upx;
-    }
-
-    &.font-large {
-        font-size: 32upx;
-    }
+    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #fffaf0 100%);
+    padding-bottom: 20rpx;
 }
 
 .settings-section {
-    background: rgba(255, 255, 255, 0.95);
-    margin: 20upx 30upx;
-    border-radius: 24upx;
+    margin: 22rpx 30rpx;
+    border-radius: 18rpx;
     overflow: hidden;
-    box-shadow: 0 8upx 24upx rgba(224, 120, 86, 0.12);
-    backdrop-filter: blur(20upx);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 10rpx 24rpx rgba(31, 55, 83, 0.1);
+}
 
-    .section-title {
-        padding: 20upx 30upx;
-        font-size: 28upx;
-        font-weight: bold;
-        color: #d4744e;
-        border-bottom: 1upx solid #f0f0f0;
-    }
+.section-title {
+    padding: 20rpx 30rpx;
+    font-size: 28rpx;
+    font-weight: 800;
+    color: #16324f;
+    border-bottom: 1rpx solid #edf2f7;
 }
 
 .settings-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24upx 30upx;
-    border-bottom: 1upx solid #f0f0f0;
-
-    &:last-child {
-        border-bottom: none;
-    }
-
-    .item-left {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-
-        .item-label {
-            font-size: 30upx;
-            color: #333333;
-            margin-bottom: 8upx;
-        }
-
-        .item-desc {
-            font-size: 24upx;
-            color: #999999;
-        }
-    }
-
-    .menu-arrow {
-        color: #cccccc;
-        font-size: 32upx;
-        margin-left: 20upx;
-    }
+    padding: 24rpx 30rpx;
+    border-bottom: 1rpx solid #edf2f7;
 }
 
-// 弹窗样式
+.settings-item:last-child {
+    border-bottom: none;
+}
+
+.item-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-label {
+    font-size: 29rpx;
+    color: #172b4d;
+    font-weight: 700;
+    margin-bottom: 8rpx;
+}
+
+.item-desc {
+    font-size: 23rpx;
+    color: #60758a;
+    line-height: 1.4;
+}
+
+.menu-arrow {
+    color: #8a9aab;
+    font-size: 32rpx;
+    margin-left: 20rpx;
+}
+
 .popup-container {
-    background-color: white;
-    border-radius: 16upx 16upx 0 0;
-    padding: 30upx 0;
-    max-height: 600upx;
-
-    .popup-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 30upx 20upx 30upx;
-        border-bottom: 1upx solid #f0f0f0;
-
-        .popup-title {
-            font-size: 32upx;
-            font-weight: bold;
-            color: #333333;
-        }
-
-        .close-btn {
-            font-size: 36upx;
-            color: #999999;
-            padding: 10upx;
-            margin-right: -10upx;
-        }
-    }
-
-    .popup-content {
-        padding: 20upx 30upx;
-        display: flex;
-        flex-direction: column;
-        gap: 16upx;
-    }
+    background: #fff;
+    border-radius: 18rpx 18rpx 0 0;
+    padding: 30rpx 0;
 }
 
-// 字体大小选项样式
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30rpx 20rpx;
+    border-bottom: 1rpx solid #edf2f7;
+}
+
+.popup-title {
+    font-size: 32rpx;
+    font-weight: 800;
+    color: #16324f;
+}
+
+.close-btn {
+    font-size: 38rpx;
+    color: #60758a;
+}
+
 .font-options {
     display: flex;
-    gap: 12upx;
-    padding: 20upx 20upx !important;
-    max-height: 400upx;
+    gap: 14rpx;
+    padding: 22rpx !important;
 }
 
 .font-option {
@@ -505,56 +295,29 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20upx 16upx;
-    border: 2upx solid #f0f0f0;
-    border-radius: 12upx;
-    background-color: #fafafa;
-    position: relative;
-    transition: all 0.3s;
+    padding: 22rpx 16rpx;
+    border: 2rpx solid #edf2f7;
+    border-radius: 14rpx;
+    background: #f8fafc;
+}
 
-    &.selected {
-        border-color: #e07856;
-        background-color: #fff0e8;
-    }
+.font-option.selected {
+    border-color: #2f80ed;
+    background: #edf5ff;
+}
 
-    .font-preview {
-        font-weight: bold;
-        margin-bottom: 12upx;
-        color: #333333;
+.font-preview {
+    font-weight: 800;
+    margin-bottom: 10rpx;
+    color: #172b4d;
+}
 
-        &.small {
-            font-size: 32upx;
-        }
+.font-preview.small { font-size: 32rpx; }
+.font-preview.medium { font-size: 40rpx; }
+.font-preview.large { font-size: 48rpx; }
 
-        &.medium {
-            font-size: 40upx;
-        }
-
-        &.large {
-            font-size: 48upx;
-        }
-    }
-
-    .font-name {
-        font-size: 22upx;
-        color: #666666;
-        text-align: center;
-    }
-
-    .font-check {
-        position: absolute;
-        top: 8upx;
-        right: 8upx;
-        font-size: 20upx;
-        color: #e07856;
-        background-color: white;
-        border-radius: 50%;
-        width: 28upx;
-        height: 28upx;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-    }
+.font-name {
+    font-size: 23rpx;
+    color: #536578;
 }
 </style>

@@ -1,115 +1,76 @@
 <template>
-    <view :class="['about-page', containerClasses]">
-        <view class="about-content">
-            <view class="section">
-                <text class="section-title">应用信息</text>
-                <view class="item">
-                    <text class="label">应用名称</text>
-                    <text class="value">暖愈心伴</text>
-                </view>
-                <view class="item">
-                    <text class="label">版本号</text>
-                    <text class="value">1.3.0</text>
-                </view>
-                <view class="item">
-                    <text class="label">描述</text>
-                    <text class="value">
-                        暖愈心伴是一款专业的心理健康管理应用，致力于为用户提供科学、便捷的心理健康服务。
-                    </text>
-                </view>
+    <view class="about-page">
+        <view class="section">
+            <text class="section-title">应用信息</text>
+            <view class="item">
+                <text class="label">应用名称</text>
+                <text class="value">Study-mate</text>
             </view>
+            <view class="item">
+                <text class="label">版本号</text>
+                <text class="value">2.0.0</text>
+            </view>
+            <view class="item">
+                <text class="label">描述</text>
+                <text class="value">Study-mate 是面向个性化学习的资源生成与多智能体协同系统，支持学情诊断、资源生成、AI 答疑、学习规划和报告追踪。</text>
+            </view>
+        </view>
 
-            <view class="section">
-                <text class="section-title">联系我们</text>
-                <view class="item">
-                    <text class="label">邮箱</text>
-                    <text class="value">support@warmmate.com</text>
-                </view>
-                <view class="item">
-                    <text class="label">电话</text>
-                    <text class="value">400-123-4567</text>
-                </view>
-                <view class="item">
-                    <text class="label">地址</text>
-                    <text class="value">北京市朝阳区</text>
-                </view>
-            </view>
+        <view class="section">
+            <text class="section-title">系统定位</text>
+            <text class="tips">系统基于大模型能力，将诊断智能体、资源生成智能体、答疑智能体、计划智能体和评价智能体组合成学习闭环，帮助学习者获得更贴合目标和基础的学习材料。</text>
+        </view>
 
-            <view class="section">
-                <text class="section-title">法律声明</text>
-                <text class="tips">
-                    本应用所有内容仅供参考，不能替代专业医学建议。如有任何健康问题，请咨询专业医生。
-                </text>
+        <view class="section">
+            <text class="section-title">联系我们</text>
+            <view class="item">
+                <text class="label">邮箱</text>
+                <text class="value">support@studymate.com</text>
             </view>
+        </view>
 
-            <view class="footer">
-                <text class="footer-text"
-                    >© 2026 Warm-Mate. All rights reserved.</text
-                >
-            </view>
+        <view class="footer">
+            <text class="footer-text">© 2026 Study-mate. All rights reserved.</text>
         </view>
     </view>
 </template>
 
 <script>
 export default {
-    data() {
-        return {};
-    },
-    computed: {
-        containerClasses() {
-            if (this.$store) {
-                return this.$store.state.theme.isDarkMode ? "dark-mode" : "";
-            }
-            return "";
-        },
-    },
-    methods: {},
     onLoad() {
-        uni.setNavigationBarTitle({
-            title: "关于我们",
-        });
+        uni.setNavigationBarTitle({ title: "关于 Study-mate" });
     },
 };
 </script>
 
 <style scoped lang="scss">
 .about-page {
-    background: linear-gradient(
-        to bottom,
-        #fff8f3 0%,
-        #ffe8d6 50%,
-        #fff5f0 100%
-    );
     min-height: 100vh;
-}
-
-.about-content {
-    padding: 20rpx;
+    background: linear-gradient(180deg, #f7fbff 0%, #eef6f2 58%, #fffaf0 100%);
+    padding: 22rpx;
 }
 
 .section {
-    margin-bottom: 25rpx;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 24rpx;
-    padding: 25rpx;
-    box-shadow: 0 8rpx 24rpx rgba(224, 120, 86, 0.12);
-    backdrop-filter: blur(20rpx);
+    margin-bottom: 24rpx;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18rpx;
+    padding: 26rpx;
+    box-shadow: 0 10rpx 24rpx rgba(31, 55, 83, 0.1);
 }
 
 .section-title {
     display: block;
-    font-size: 28rpx;
-    font-weight: 700;
-    color: #d4744e;
-    margin-bottom: 20rpx;
+    font-size: 29rpx;
+    font-weight: 800;
+    color: #16324f;
+    margin-bottom: 18rpx;
 }
 
 .item {
     display: flex;
-    padding: 15rpx 0;
-    border-bottom: 1rpx solid #eee;
     flex-direction: column;
+    padding: 14rpx 0;
+    border-bottom: 1rpx solid #edf2f7;
 }
 
 .item:last-child {
@@ -118,32 +79,29 @@ export default {
 
 .label {
     font-size: 22rpx;
-    color: #e8825b;
-    font-weight: 500;
-    margin-bottom: 5rpx;
+    color: #2f80ed;
+    font-weight: 700;
+    margin-bottom: 6rpx;
 }
 
-.value {
-    font-size: 22rpx;
-    color: #666;
-    line-height: 1.5;
+.value,
+.tips {
+    font-size: 24rpx;
+    color: #536578;
+    line-height: 1.65;
 }
 
 .tips {
     display: block;
-    font-size: 22rpx;
-    color: #666;
-    line-height: 1.6;
 }
 
 .footer {
-    display: flex;
-    justify-content: center;
-    padding: 50rpx 20rpx 30rpx;
+    text-align: center;
+    padding: 42rpx 20rpx;
 }
 
 .footer-text {
     font-size: 20rpx;
-    color: #999;
+    color: #8a9aab;
 }
 </style>

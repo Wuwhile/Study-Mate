@@ -6,36 +6,36 @@
         {
             "path": "pages/index/index",
             "style": {
-                "navigationBarTitleText": "我的收藏",
+                "navigationBarTitleText": "Study-mate",
                 "navigationStyle": "custom"
             }
         },
         {
             "path": "pages/message/message",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "AI 学习助手",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/message/conversation-list",
             "style": {
-                "navigationBarTitleText": "对话历史",
+                "navigationBarTitleText": "学习对话历史",
                 "navigationStyle": "custom"
             }
         },
         {
             "path": "pages/login/login",
             "style": {
-                "navigationBarTitleText": "我的收藏",
+                "navigationBarTitleText": "登录 Study-mate",
                 "navigationStyle": "custom"
             }
         },
         {
             "path": "pages/register/register",
             "style": {
-                "navigationBarTitleText": "我的收藏",
+                "navigationBarTitleText": "注册 Study-mate",
                 "navigationStyle": "custom"
             }
         },
@@ -49,166 +49,126 @@
         {
             "path": "pages/phq7-test/index",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "学情诊断",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/phq7-test/do-test",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "学习画像诊断",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/phq7-test/history",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
-                "navigationBarTextStyle": "white"
-            }
-        },
-        {
-            "path": "pages/phq7-test/gad7",
-            "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
-                "navigationBarTextStyle": "white"
-            }
-        },
-        {
-            "path": "pages/phq7-test/cpss",
-            "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
-                "navigationBarTextStyle": "white"
-            }
-        },
-        {
-            "path": "pages/phq7-test/ucla",
-            "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
-                "navigationBarTextStyle": "white"
-            }
-        },
-        {
-            "path": "pages/phq7-test/psqi",
-            "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
-                "navigationBarTextStyle": "white"
-            }
-        },
-        {
-            "path": "pages/phq7-test/sds",
-            "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "诊断报告历史",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/health/index",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "学习资源库",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/psychologist/index",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "学习导师",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/psychologist/appointment",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "学习规划预约",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/psychologist/record",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "预约记录",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/user/index",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "个人中心",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/user/settings",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "设置",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/user/account",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "账户管理",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/user/change-password",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "修改密码",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/help/index",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "帮助",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/feedback/index",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "反馈",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         },
         {
             "path": "pages/about/index",
             "style": {
-                "navigationBarTitleText": "",
-                "navigationBarBackgroundColor": "#E8825B",
+                "navigationBarTitleText": "关于",
+                "navigationBarBackgroundColor": "#16324f",
                 "navigationBarTextStyle": "white"
             }
         }
     ],
     "globalStyle": {
-        "navigationBarBackgroundColor": "#F8F8F8",
-        "backgroundColor": "#F8F8F8",
+        "navigationBarBackgroundColor": "#16324f",
+        "backgroundColor": "#f7fbff",
         "app-plus": {
             "titleView": false
         }
     },
     "tabBar": {
-        "color": "#999999",
-        "selectedColor": "#E8825B",
+        "color": "#60758a",
+        "selectedColor": "#2f80ed",
         "backgroundColor": "#ffffff",
         "borderStyle": "black",
         "list": [
