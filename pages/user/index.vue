@@ -280,7 +280,7 @@ export default {
 /* 用户信息卡片 */
 .user-info-card {
     background: linear-gradient(135deg, #3b82f6 0%, #2f80ed 50%, #1d4ed8 100%);
-    padding: 40rpx 30rpx;
+    padding: calc(var(--status-bar-height) + 32rpx) 30rpx 40rpx;
     display: flex;
     align-items: center;
     box-shadow: 0 8rpx 24rpx rgba(47, 128, 237, 0.25);
