@@ -877,16 +877,21 @@ AI 使用方式
     justify-content: space-between;
     padding: 32rpx;
     border-bottom: 1rpx solid #e8eef5;
+    gap: 18rpx;
 }
 
 .modal-title {
     flex: 1;
+    min-width: 0;
     font-size: 30rpx;
     font-weight: 800;
     color: #172b4d;
+    line-height: 1.45;
+    word-break: break-word;
 }
 
 .close-btn {
+    flex: 0 0 52rpx;
     width: 52rpx;
     height: 52rpx;
     border-radius: 50%;
@@ -897,8 +902,11 @@ AI 使用方式
 }
 
 .article-body {
-    padding: 0 32rpx;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 40rpx 8rpx;
     max-height: 62vh;
+    overflow-x: hidden;
 }
 
 .modal-tags {
@@ -907,10 +915,15 @@ AI 使用方式
 
 .content-text {
     display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
     font-size: 26rpx;
     color: #172b4d;
     line-height: 1.85;
     white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .close-button {
