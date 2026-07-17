@@ -81,7 +81,7 @@
 export default {
     data() {
         return {
-            title: "Study-mate",
+            title: "擎思启学",
             modalShow: false,
             retrievePwd: {
                 username: "",

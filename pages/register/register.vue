@@ -105,7 +105,7 @@ export default {
     data() {
         let _this = this;
         return {
-            title: "Study-mate",
+            title: "擎思启学",
             model: {
                 user: {
                     username: "",

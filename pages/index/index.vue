@@ -2,7 +2,7 @@
     <view class="page-container">
         <view class="header">
             <view>
-                <text class="title">Study-mate</text>
+                <text class="title">擎思启学</text>
                 <text class="subtitle">个性化资源生成与学习多智能体系统</text>
             </view>
         </view>

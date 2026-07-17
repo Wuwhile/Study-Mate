@@ -59,7 +59,7 @@
             <view class="settings-item" @click="showPrivacy">
                 <view class="item-left">
                     <text class="item-label">隐私政策</text>
-                    <text class="item-desc">了解 Study-mate 如何处理学习数据</text>
+                    <text class="item-desc">了解擎思启学如何处理学习数据</text>
                 </view>
                 <text class="menu-arrow">&gt;</text>
             </view>
@@ -168,7 +168,7 @@ export default {
         showPrivacy() {
             uni.showModal({
                 title: "隐私政策",
-                content: "Study-mate 会使用你的学习画像、诊断记录和对话记录来提供个性化资源生成服务。请不要提交无关敏感信息。",
+                content: "擎思启学会使用你的学习画像、诊断记录和对话记录来提供个性化资源生成服务。请不要提交无关敏感信息。",
                 showCancel: false,
                 confirmText: "知道了",
             });

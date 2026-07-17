@@ -5,7 +5,7 @@
                 <uni-icons type="staff-filled" size="42" color="#ffffff" />
             </view>
             <view class="guide-speech">
-                <text>Hi，我是 Study-mate 的诊断智能体。先完成一个学习画像诊断，我会帮你定位薄弱点并生成后续资源。</text>
+                <text>Hi，我是擎思启学的诊断智能体。先完成一个学习画像诊断，我会帮你定位薄弱点并生成后续资源。</text>
             </view>
         </view>
 

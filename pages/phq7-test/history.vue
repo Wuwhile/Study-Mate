@@ -49,7 +49,7 @@ export default {
             }
         },
         normalizeName(name) {
-            return name || "Study-mate 学习画像诊断";
+            return name || "擎思启学 学习画像诊断";
         },
         formatDate(dateStr) {
             if (!dateStr) return "";

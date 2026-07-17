@@ -6,7 +6,7 @@
         {
             "path": "pages/index/index",
             "style": {
-                "navigationBarTitleText": "Study-mate",
+                "navigationBarTitleText": "擎思启学",
                 "navigationStyle": "custom"
             }
         },
@@ -28,14 +28,14 @@
         {
             "path": "pages/login/login",
             "style": {
-                "navigationBarTitleText": "登录 Study-mate",
+                "navigationBarTitleText": "登录 擎思启学",
                 "navigationStyle": "custom"
             }
         },
         {
             "path": "pages/register/register",
             "style": {
-                "navigationBarTitleText": "注册 Study-mate",
+                "navigationBarTitleText": "注册 擎思启学",
                 "navigationStyle": "custom"
             }
         },

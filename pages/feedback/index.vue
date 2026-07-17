@@ -32,7 +32,7 @@
             </view>
 
             <button class="submit-btn" @click="submitFeedback">提交反馈</button>
-            <text class="footer-tips">感谢反馈，Study-mate 会持续改进学习体验。</text>
+            <text class="footer-tips">感谢反馈，擎思启学会持续改进学习体验。</text>
         </view>
 
         <view v-if="activeTab === 'help'" class="help-section">

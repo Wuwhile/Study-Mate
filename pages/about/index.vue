@@ -4,7 +4,7 @@
             <text class="section-title">应用信息</text>
             <view class="item">
                 <text class="label">应用名称</text>
-                <text class="value">Study-mate</text>
+                <text class="value">擎思启学</text>
             </view>
             <view class="item">
                 <text class="label">版本号</text>
@@ -12,7 +12,7 @@
             </view>
             <view class="item">
                 <text class="label">描述</text>
-                <text class="value">Study-mate 是面向个性化学习的资源生成与多智能体协同系统，支持学情诊断、资源生成、AI 答疑、学习规划和报告追踪。</text>
+                <text class="value">擎思启学是面向个性化学习的资源生成与多智能体协同系统，支持学情诊断、资源生成、AI 答疑、学习规划和报告追踪。</text>
             </view>
         </view>
 
@@ -30,7 +30,7 @@
         </view>
 
         <view class="footer">
-            <text class="footer-text">© 2026 Study-mate. All rights reserved.</text>
+            <text class="footer-text">© 2026 擎思启学. All rights reserved.</text>
         </view>
     </view>
 </template>
@@ -38,7 +38,7 @@
 <script>
 export default {
     onLoad() {
-        uni.setNavigationBarTitle({ title: "关于 Study-mate" });
+        uni.setNavigationBarTitle({ title: "关于 擎思启学" });
     },
 };
 </script>

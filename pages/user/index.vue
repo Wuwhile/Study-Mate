@@ -68,7 +68,7 @@
                     <uni-icons class="menu-icon" type="info-filled" size="30" color="#2563eb" />
                     <view class="menu-text">
                         <text class="menu-title">关于我们</text>
-                        <text class="menu-desc">了解 Study-mate 系统信息</text>
+                        <text class="menu-desc">了解擎思启学系统信息</text>
                     </view>
                 </view>
                 <text class="menu-arrow">&gt;</text>
