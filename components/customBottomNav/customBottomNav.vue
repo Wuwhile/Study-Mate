@@ -59,13 +59,13 @@ export default {
     left: 0;
     right: 0;
     height: 100rpx;
-    background-color: #2f80ed;
+    background: linear-gradient(135deg, #123a66 0%, #2563eb 62%, #0ea5e9 100%);
     display: flex;
     justify-content: space-around;
     align-items: center;
     /* 强制清除阴影，绝对生效 */
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important;
+    box-shadow: 0 -6rpx 24rpx rgba(15, 63, 118, 0.16) !important;
+    -webkit-box-shadow: 0 -6rpx 24rpx rgba(15, 63, 118, 0.16) !important;
     z-index: 100;
 }
 
@@ -80,7 +80,7 @@ export default {
 
     &.active {
         color: #fff;
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: rgba(255, 255, 255, 0.14);
     }
 
     .nav-icon {

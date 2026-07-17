@@ -21,7 +21,7 @@
         <view class="menu-container">
             <view class="menu-item" @click="navigateTo('account')">
                 <view class="menu-left">
-                    <uni-icons class="menu-icon" type="person-filled" size="30" color="#2f80ed" />
+                    <uni-icons class="menu-icon" type="person-filled" size="30" color="#2563eb" />
                     <view class="menu-text">
                         <text class="menu-title">账号管理</text>
                         <text class="menu-desc">修改绑定的手机和邮箱</text>
@@ -32,7 +32,7 @@
 
             <view class="menu-item" @click="navigateTo('password')">
                 <view class="menu-left">
-                    <uni-icons class="menu-icon" type="locked-filled" size="30" color="#2f80ed" />
+                    <uni-icons class="menu-icon" type="locked-filled" size="30" color="#0ea5e9" />
                     <view class="menu-text">
                         <text class="menu-title">修改密码</text>
                         <text class="menu-desc">更新你的登录密码</text>
@@ -43,7 +43,7 @@
 
             <view class="menu-item" @click="navigateTo('settings')">
                 <view class="menu-left">
-                    <uni-icons class="menu-icon" type="gear-filled" size="30" color="#2f80ed" />
+                    <uni-icons class="menu-icon" type="gear-filled" size="30" color="#4f46e5" />
                     <view class="menu-text">
                         <text class="menu-title">设置</text>
                         <text class="menu-desc">隐私、通知、显示设置</text>
@@ -54,7 +54,7 @@
 
             <view class="menu-item" @click="navigateTo('feedback')">
                 <view class="menu-left">
-                    <uni-icons class="menu-icon" type="chat-filled" size="30" color="#2f80ed" />
+                    <uni-icons class="menu-icon" type="chat-filled" size="30" color="#0284c7" />
                     <view class="menu-text">
                         <text class="menu-title">帮助与反馈</text>
                         <text class="menu-desc">向我们提出建议和问题</text>
@@ -65,7 +65,7 @@
 
             <view class="menu-item" @click="navigateTo('about')">
                 <view class="menu-left">
-                    <uni-icons class="menu-icon" type="info-filled" size="30" color="#2f80ed" />
+                    <uni-icons class="menu-icon" type="info-filled" size="30" color="#2563eb" />
                     <view class="menu-text">
                         <text class="menu-title">关于我们</text>
                         <text class="menu-desc">了解 Study-mate 系统信息</text>
@@ -268,10 +268,10 @@ export default {
 <style lang="scss" scoped>
 .user-center {
     background: linear-gradient(
-        to bottom,
-        #f7fbff 0%,
-        #eaf4ff 50%,
-        #f4f8ff 100%
+        180deg,
+        #eef6ff 0%,
+        #f6fbff 42%,
+        #eef7fb 100%
     );
     min-height: 100vh;
     padding-bottom: 220rpx;
@@ -279,11 +279,13 @@ export default {
 
 /* 用户信息卡片 */
 .user-info-card {
-    background: linear-gradient(135deg, #3b82f6 0%, #2f80ed 50%, #1d4ed8 100%);
+    background:
+        radial-gradient(circle at 16% 22%, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0) 28%),
+        linear-gradient(135deg, #0f3f76 0%, #2563eb 48%, #22b8cf 100%);
     padding: calc(var(--status-bar-height) + 32rpx) 30rpx 40rpx;
     display: flex;
     align-items: center;
-    box-shadow: 0 8rpx 24rpx rgba(47, 128, 237, 0.25);
+    box-shadow: 0 14rpx 34rpx rgba(37, 99, 235, 0.22);
 
     .avatar-container {
         margin-right: 30rpx;
@@ -294,8 +296,8 @@ export default {
             width: 100rpx;
             height: 100rpx;
             border-radius: 50%;
-            border: 4rpx solid rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.2);
+            border: 4rpx solid rgba(255, 255, 255, 0.46);
+            background: rgba(255, 255, 255, 0.14);
             object-fit: cover;
         }
     }
@@ -331,10 +333,10 @@ export default {
 
 /* 功能菜单列表 */
 .menu-container {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.94);
     margin: 24rpx 20rpx;
     border-radius: 24rpx;
-    box-shadow: 0 8rpx 24rpx rgba(47, 128, 237, 0.12);
+    box-shadow: 0 12rpx 34rpx rgba(15, 63, 118, 0.1);
     overflow: hidden;
     backdrop-filter: blur(20rpx);
 }
@@ -390,7 +392,7 @@ export default {
 
     .menu-arrow {
         font-size: 24rpx;
-        color: #2f80ed;
+        color: #60a5fa;
         margin-left: 10rpx;
         opacity: 0.6;
         transition: all 0.3s ease;
@@ -408,18 +410,18 @@ export default {
     .logout-btn {
         width: 100%;
         height: 80rpx;
-        background: linear-gradient(135deg, #3b82f6 0%, #2f80ed 100%);
+        background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
         color: white;
         font-size: 28rpx;
         font-weight: 700;
         border: none;
         border-radius: 24rpx;
-        box-shadow: 0 8rpx 24rpx rgba(47, 128, 237, 0.25);
+        box-shadow: 0 12rpx 26rpx rgba(14, 165, 233, 0.22);
         transition: all 0.3s ease;
 
         &:active {
             transform: translateY(-2rpx);
-            box-shadow: 0 6rpx 20rpx rgba(47, 128, 237, 0.4);
+            box-shadow: 0 8rpx 22rpx rgba(14, 165, 233, 0.28);
         }
     }
 }
