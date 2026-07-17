@@ -1,12 +1,9 @@
 <template>
     <view class="diagnosis-container">
         <view class="guide-area">
-            <uni-icons
-                class="guide-emoji"
-                type="staff-filled"
-                size="62"
-                color="#ffffff"
-            />
+            <view class="guide-avatar">
+                <uni-icons type="staff-filled" size="42" color="#ffffff" />
+            </view>
             <view class="guide-speech">
                 <text>Hi，我是 Study-mate 的诊断智能体。先完成一个学习画像诊断，我会帮你定位薄弱点并生成后续资源。</text>
             </view>
@@ -207,9 +204,17 @@ export default {
     box-shadow: 0 10rpx 24rpx rgba(31, 55, 83, 0.1);
 }
 
-.guide-emoji {
-    font-size: 72rpx;
+.guide-avatar {
+    width: 92rpx;
+    height: 92rpx;
+    flex: 0 0 92rpx;
     margin-right: 20rpx;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e8a183 0%, #d4744e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8rpx 18rpx rgba(212, 116, 78, 0.22);
 }
 
 .guide-speech {
