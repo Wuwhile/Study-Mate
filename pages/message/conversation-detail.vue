@@ -187,9 +187,9 @@ export default {
 page {
     background: linear-gradient(
         to bottom,
-        #fff8f3 0%,
-        #ffe8d6 50%,
-        #fff5f0 100%
+        #f7fbff 0%,
+        #eaf4ff 50%,
+        #f2fff8 100%
     );
 }
 
@@ -197,9 +197,9 @@ page {
     min-height: 100vh;
     background: linear-gradient(
         to bottom,
-        #fff8f3 0%,
-        #ffe8d6 50%,
-        #fff5f0 100%
+        #f7fbff 0%,
+        #eaf4ff 50%,
+        #f2fff8 100%
     );
     display: flex;
     flex-direction: column;
@@ -212,9 +212,9 @@ page {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: linear-gradient(to bottom, #fff8f3 0%, #ffe8d6 100%);
-    border-bottom: 1rpx solid #e8d4c4;
-    box-shadow: 0 2rpx 8rpx rgba(224, 120, 86, 0.08);
+    background: linear-gradient(to bottom, #f7fbff 0%, #eaf4ff 100%);
+    border-bottom: 1rpx solid #dbeafe;
+    box-shadow: 0 2rpx 8rpx rgba(37, 99, 235, 0.08);
     padding: 20rpx 30rpx;
     display: flex;
     align-items: center;
@@ -235,7 +235,7 @@ page {
 
 .back-arrow {
     font-size: 32rpx;
-    color: #e07856;
+    color: #2563eb;
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 10rpx;
@@ -244,7 +244,7 @@ page {
 .back-arrow:active {
     transform: scale(0.95);
     opacity: 0.9;
-    color: #c85a3a;
+    color: #1d4ed8;
 }
 
 /* 消息列表 */
@@ -283,18 +283,18 @@ page {
 }
 
 .message-left {
-    background: linear-gradient(135deg, #f5f5f5 0%, #fffafa 100%);
+    background: linear-gradient(135deg, #f5f5f5 0%, #f8fbff 100%);
     color: #1e293b;
     border-radius: 12rpx 12rpx 12rpx 0;
-    border-left: 3rpx solid #e07856;
+    border-left: 3rpx solid #2563eb;
 }
 
 .message-right {
     align-self: flex-end;
-    background: linear-gradient(135deg, #e07856 0%, #d4744e 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #0f766e 100%);
     color: white;
     border-radius: 12rpx 12rpx 0 12rpx;
-    box-shadow: 0 4rpx 12rpx rgba(224, 120, 86, 0.2);
+    box-shadow: 0 4rpx 12rpx rgba(37, 99, 235, 0.2);
 }
 
 .message-text {
@@ -316,13 +316,13 @@ page {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to bottom, #ffe8d6 0%, #fff5f0 100%);
-    border-top: 1rpx solid #e8d4c4;
+    background: linear-gradient(to bottom, #eaf4ff 0%, #f2fff8 100%);
+    border-top: 1rpx solid #dbeafe;
     padding: 15rpx 20rpx;
     display: flex;
     gap: 10rpx;
     align-items: center;
-    box-shadow: 0 -2rpx 8rpx rgba(224, 120, 86, 0.08);
+    box-shadow: 0 -2rpx 8rpx rgba(37, 99, 235, 0.08);
     z-index: 100;
 }
 
@@ -341,7 +341,7 @@ page {
 }
 
 .send-btn {
-    background: linear-gradient(135deg, #e07856 0%, #d4744e 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #0f766e 100%);
     color: white;
     border: none;
     border-radius: 8rpx;
@@ -349,12 +349,12 @@ page {
     font-size: 28rpx;
     font-weight: 500;
     transition: all 0.3s ease;
-    box-shadow: 0 4rpx 12rpx rgba(224, 120, 86, 0.25);
+    box-shadow: 0 4rpx 12rpx rgba(37, 99, 235, 0.25);
 }
 
 .send-btn:active {
-    background: linear-gradient(135deg, #c85a3a 0%, #b94a32 100%);
+    background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%);
     transform: scale(0.95);
-    box-shadow: 0 2rpx 8rpx rgba(224, 120, 86, 0.18);
+    box-shadow: 0 2rpx 8rpx rgba(37, 99, 235, 0.18);
 }
 </style>

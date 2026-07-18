@@ -982,9 +982,9 @@ export default {
     padding: 20rpx 0;
     background: linear-gradient(
         to bottom,
-        #fff8f3 0%,
-        #ffe8d6 50%,
-        #fff5f0 100%
+        #f7fbff 0%,
+        #eaf4ff 50%,
+        #f2fff8 100%
     );
     min-height: 100vh;
     font-size: 28rpx;
@@ -1012,7 +1012,7 @@ export default {
         font-size: 36rpx;
         font-weight: 700;
         margin-bottom: 10rpx;
-        color: #d4744e;
+        color: #0f766e;
 
         .dark-mode & {
             color: #fff;
@@ -1035,7 +1035,7 @@ export default {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 24rpx;
     padding: 30rpx;
-    box-shadow: 0 8rpx 24rpx rgba(224, 120, 86, 0.12);
+    box-shadow: 0 8rpx 24rpx rgba(37, 99, 235, 0.12);
 
     .dark-mode & {
         background-color: #2a2a2a;
@@ -1045,7 +1045,7 @@ export default {
         font-size: 28rpx;
         font-weight: 600;
         margin-bottom: 20rpx;
-        color: #d4744e;
+        color: #0f766e;
 
         .dark-mode & {
             color: #fff;
@@ -1128,14 +1128,14 @@ export default {
 
     .edit-btn {
         padding: 8rpx 20rpx;
-        background-color: #e07856;
+        background-color: #2563eb;
         color: #fff;
         border-radius: 6rpx;
         font-size: 24rpx;
         border: none;
 
         &:active {
-            background-color: #d4744e;
+            background-color: #0f766e;
         }
     }
 

@@ -436,9 +436,9 @@ export default {
     padding: 20rpx 0;
     background: linear-gradient(
         to bottom,
-        #fff8f3 0%,
-        #ffe8d6 50%,
-        #fff5f0 100%
+        #f7fbff 0%,
+        #eaf4ff 50%,
+        #f2fff8 100%
     );
     min-height: 100vh;
     font-size: 28rpx;
@@ -466,7 +466,7 @@ export default {
         font-size: 36rpx;
         font-weight: bold;
         margin-bottom: 10rpx;
-        color: #d4744e;
+        color: #0f766e;
 
         .dark-mode & {
             color: #fff;
@@ -489,7 +489,7 @@ export default {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 24rpx;
     padding: 30rpx;
-    box-shadow: 0 8rpx 24rpx rgba(224, 120, 86, 0.12);
+    box-shadow: 0 8rpx 24rpx rgba(37, 99, 235, 0.12);
 
     .dark-mode & {
         background-color: #2a2a2a;
@@ -551,7 +551,7 @@ export default {
             position: absolute;
             right: 16rpx;
             font-size: 22rpx;
-            color: #e07856;
+            color: #2563eb;
             padding: 8rpx 12rpx;
             cursor: pointer;
 
@@ -644,7 +644,7 @@ export default {
         padding: 16rpx;
         background-color: #f9f9f9;
         border-radius: 8rpx;
-        border-left: 4rpx solid #e07856;
+        border-left: 4rpx solid #2563eb;
 
         .dark-mode & {
             background-color: #333;
@@ -758,7 +758,7 @@ export default {
     }
 
     .submit-btn {
-        background: linear-gradient(135deg, #e07856 0%, #d4744e 100%);
+        background: linear-gradient(135deg, #2563eb 0%, #0f766e 100%);
         color: #fff;
 
         &:active:not(.disabled) {
