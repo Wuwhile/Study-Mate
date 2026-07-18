@@ -395,8 +395,8 @@ export default {
 
         .title-image {
             display: block;
-            width: 480rpx;
-            height: 150rpx;
+            width: 620rpx;
+            height: 194rpx;
             margin: 0 auto;
             animation: subtleShimmer 3s ease-in-out infinite;
         }
