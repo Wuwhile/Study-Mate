@@ -372,7 +372,7 @@ export default {
 
         .title {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 0;
             animation: slideInUp 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s
                 backwards;
 
@@ -386,7 +386,7 @@ export default {
 
         .form {
             padding: 0 60px;
-            margin-top: 40px;
+            margin-top: -20rpx;
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
