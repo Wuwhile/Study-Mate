@@ -6,15 +6,11 @@
         <view class="container">
             <!-- logo -->
             <view class="logo">
-                <view class="logo-mark">
-                    <text class="logo-main">学</text>
-                    <text class="logo-dot">AI</text>
-                </view>
+                <image src="/static/app.jpg" class="logo-image" mode="aspectFill"></image>
             </view>
             <!-- 标题图片 -->
             <view class="title">
-                <text class="title-text">擎思启学</text>
-                <text class="title-subtitle">个性化资源生成与学习多智能体系统</text>
+                <image src="/static/title.png" class="title-image" mode="aspectFit"></image>
             </view>
             <!-- 用户名密码表单 -->
             <view class="form">
@@ -381,47 +377,12 @@ export default {
             animation: slideInUp 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s
                 backwards;
 
-            .logo-mark {
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 116rpx;
-                height: 116rpx;
-                border-radius: 32rpx;
-                background: linear-gradient(135deg, #2563eb 0%, #0f766e 100%);
-                box-shadow:
-                    0 18rpx 36rpx rgba(37, 99, 235, 0.22),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+            .logo-image {
+                width: 128rpx;
+                height: 128rpx;
+                border-radius: 30rpx;
+                box-shadow: 0 18rpx 36rpx rgba(37, 99, 235, 0.2);
                 animation: float 4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-
-                &::before {
-                    content: "";
-                    position: absolute;
-                    inset: 10rpx;
-                    border: 2rpx solid rgba(255, 255, 255, 0.45);
-                    border-radius: 26rpx;
-                }
-            }
-
-            .logo-main {
-                color: #ffffff;
-                font-size: 56rpx;
-                font-weight: 800;
-                line-height: 1;
-            }
-
-            .logo-dot {
-                position: absolute;
-                right: -18rpx;
-                bottom: -12rpx;
-                padding: 4rpx 10rpx;
-                border-radius: 999rpx;
-                background: #d9f99d;
-                color: #14532d;
-                font-size: 20rpx;
-                font-weight: 800;
-                box-shadow: 0 8rpx 18rpx rgba(20, 83, 45, 0.16);
             }
         }
 
@@ -432,21 +393,12 @@ export default {
                 backwards;
         }
 
-        .title-text {
+        .title-image {
             display: block;
-            font-size: 48rpx;
-            font-weight: 700;
-            color: #12345a;
-            letter-spacing: 0;
+            width: 480rpx;
+            height: 150rpx;
+            margin: 0 auto;
             animation: subtleShimmer 3s ease-in-out infinite;
-        }
-
-        .title-subtitle {
-            display: block;
-            margin-top: 14rpx;
-            color: #53718d;
-            font-size: 26rpx;
-            line-height: 1.4;
         }
 
         .form {
